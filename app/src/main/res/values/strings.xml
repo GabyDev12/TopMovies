@@ -1,3 +1,25 @@
 <resources>
+
+
     <string name="app_name">TopMovies</string>
+
+
+    <!-- LAYOUT -->
+
+
+    <!-- home_layout -->
+
+    <string name="a"></string>
+
+
+    <!-- TOAST -->
+
+    <string name="b"></string>
+
+
+    <!-- ALERT DIALOG -->
+
+    <string name="c"></string>
+
+
 </resources>
