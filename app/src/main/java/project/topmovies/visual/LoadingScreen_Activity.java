@@ -1,8 +1,7 @@
 package project.topmovies.visual;
 
 
-import project.topmovies.HomeScreen_Activity;
-import project.topmovies.R;
+import project.topmovies.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,9 +27,9 @@ public class LoadingScreen_Activity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intentPantallaCarga = new Intent(LoadingScreen_Activity.this, HomeScreen_Activity.class);
+                Intent intentLoadingScreen = new Intent(LoadingScreen_Activity.this, Start_Activity.class);
 
-                startActivity(intentPantallaCarga);
+                startActivity(intentLoadingScreen);
 
                 finish();
 
