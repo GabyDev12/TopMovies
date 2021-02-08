@@ -33,14 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/welcomeTopMovies"
-        android:layout_marginBottom="70dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
         android:adjustViewBounds="true"
         android:maxWidth="80dp"
         android:maxHeight="100dp"
+        android:onClick="lang_Spanish"
         android:scaleType="fitXY"
-        android:src="@drawable/img_spain"
-        android:onClick="lang_Spanish" />
+        android:src="@drawable/img_spain" />
 
     <ImageView
         android:id="@+id/imageView_USAFlag"
@@ -51,8 +51,8 @@
         android:adjustViewBounds="true"
         android:maxWidth="80dp"
         android:maxHeight="200dp"
+        android:onClick="lang_English"
         android:scaleType="fitXY"
-        android:src="@drawable/img_usa"
-        android:onClick="lang_English" />
+        android:src="@drawable/img_usa" />
 
 </RelativeLayout>
