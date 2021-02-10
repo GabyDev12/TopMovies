@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout_Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cyan_dark"
+        app:tabIndicatorColor="#FFFFFF"
+        app:tabTextColor="#FFFFFF"
+        android:visibility="visible">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem_Billboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Billboard" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem_ComingSoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comming Soon" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_below="@+id/tabLayout_Container"
+        android:id="@+id/viewPager_Content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
+
+</RelativeLayout>

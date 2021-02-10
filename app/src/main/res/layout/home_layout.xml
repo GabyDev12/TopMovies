@@ -13,18 +13,18 @@
         android:layout_height="wrap_content" />
 
     <include
-        layout="@layout/fragment_container"
+        layout="@layout/content_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize" />
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/navView"
-        app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer_menu"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"/>
-
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
