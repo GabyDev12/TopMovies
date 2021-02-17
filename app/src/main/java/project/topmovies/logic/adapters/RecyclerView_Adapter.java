@@ -1,4 +1,7 @@
-package project.topmovies.logic;
+package project.topmovies.logic.adapters;
+
+
+import project.topmovies.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import project.topmovies.R;
 
 public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adapter.ViewHolder> {
 
@@ -72,14 +74,12 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
         ViewHolder(View itemView) {
 
             super(itemView);
-            textView = itemView.findViewById(R.id.textView2);
             movie_cardView = itemView.findViewById(R.id.movie_card);
 
         }
 
         void bindData(final String item) {
 
-            textView.setText(item);
 
         }
 

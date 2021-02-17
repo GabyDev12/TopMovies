@@ -2,7 +2,7 @@ package project.topmovies.visual.fragments;
 
 
 import project.topmovies.*;
-import project.topmovies.logic.RecyclerView_Adapter;
+import project.topmovies.logic.adapters.RecyclerView_Adapter;
 
 import android.os.Bundle;
 
@@ -27,10 +27,13 @@ public class Billboard_Fragment extends Fragment {
 
     private List<String> myDataSet;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         thisView = inflater.inflate(R.layout.billboard_fraglayout, container, false);
+
+        // LOAD DATA
 
         myDataSet = new ArrayList<>();
 
@@ -44,20 +47,18 @@ public class Billboard_Fragment extends Fragment {
 
         mAdapter = new RecyclerView_Adapter(myDataSet, container.getContext());
 
-        mRecyclerView = thisView.findViewById(R.id.recyclerView);
+        //
 
-        // Esta línea mejora el rendimiento, si sabemos que el contenido
-        // no va a afectar al tamaño del RecyclerView
+        mRecyclerView = thisView.findViewById(R.id.recyclerView_Billboard);
+
         mRecyclerView.setHasFixedSize(true);
 
-        // Nuestro RecyclerView usará un linear layout manager
         GridLayoutManager layoutManager = new GridLayoutManager(container.getContext(), 2);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        // Asociamos un adapter (ver más adelante cómo definirlo)
         mRecyclerView.setAdapter(mAdapter);
 
-        return  thisView;
+        return thisView;
 
     }
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@color/cyan_dark2">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@color/gray_dark2"
+            android:text="SIGN UP" />
+
+        <Button
+            android:id="@+id/button_SignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_SignUp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@color/gray_dark2"
+            android:text="SIGN IN" />
+
+        <Button
+            android:id="@+id/button_gSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_SignIn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@color/white"
+            android:text="SIGN WITH GOOGLE"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+</LinearLayout>

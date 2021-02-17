@@ -1,4 +1,4 @@
-package project.topmovies.logic;
+package project.topmovies.logic.adapters;
 
 
 import project.topmovies.visual.fragments.*;
