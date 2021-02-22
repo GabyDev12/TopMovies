@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +29,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class HomeScreen_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    // VARIABLES
+    // VARIABLES //
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -86,7 +87,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         */
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openNavView, R.string.closeNavView);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -126,6 +127,33 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         });
 
         contentPage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutContainer));
+
+    }
+
+
+    // Configuration for sign up/sign in buttons
+
+    public void nav_btnSignUp(View v) {
+
+        Intent intentSignUp = new Intent(HomeScreen_Activity.this, SignUp_Activity.class);
+
+        startActivity(intentSignUp);
+
+    }
+
+    public void nav_btnSignIn(View v) {
+
+        Intent intentSignIn = new Intent(HomeScreen_Activity.this, SignIn_Activity.class);
+
+        startActivity(intentSignIn);
+
+    }
+
+    public void nav_btnGSignIn(View v) {
+
+        Intent intentGSignIn = new Intent(HomeScreen_Activity.this, gSignIn_Activity.class);
+
+        startActivity(intentGSignIn);
 
     }
 

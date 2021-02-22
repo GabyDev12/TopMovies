@@ -14,9 +14,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             android:backgroundTint="@color/gray_dark2"
+            android:onClick="nav_btnSignUp"
             android:text="SIGN UP" />
 
         <Button
@@ -29,6 +30,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             android:backgroundTint="@color/gray_dark2"
+            android:onClick="nav_btnSignIn"
             android:text="SIGN IN" />
 
         <Button
@@ -41,6 +43,8 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/google_logo"
+            android:onClick="nav_btnGSignIn"
             android:text="SIGN WITH GOOGLE"
             android:textColor="@color/black" />
 

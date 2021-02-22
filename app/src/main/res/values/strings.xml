@@ -4,9 +4,6 @@
     <string name="app_name">TopMovies</string>
 
 
-    <!-- LAYOUT -->
-
-
     <!-- start_layout -->
 
     <string name="welcomeMsg">WELCOME TO</string>
@@ -29,8 +26,8 @@
 
     <!-- ActionBarDrawerToggle -->
 
-    <string name="open">open</string>
-    <string name="close">close</string>
+    <string name="openNavView">openNavView</string>
+    <string name="closeNavView">closeNavView</string>
 
 
 </resources>

@@ -32,17 +32,17 @@
             android:icon="@drawable/ic_signout"
             android:title="Sign Out" />
 
-    </group>
-
-    <group
-        android:id="@+id/group_moreOptions"
-        android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_Settings"
             android:checkable="true"
             android:icon="@drawable/ic_settings"
             android:title="Settings" />
+
+    </group>
+
+    <group
+        android:id="@+id/group_moreOptions"
+        android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_About"

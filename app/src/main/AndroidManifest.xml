@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopMovies">
         <activity
+            android:name=".visual.gSignIn_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
+        <activity
+            android:name=".visual.SignIn_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
+        <activity
+            android:name=".visual.SignUp_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
+        <activity
             android:name=".visual.HomeScreen_Activity"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
