@@ -6,6 +6,7 @@ import project.topmovies.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,6 +32,19 @@ public class SignIn_Activity extends AppCompatActivity {
         editText_Password = findViewById(R.id.editText_SI_Password);
 
         button_SignIn = findViewById(R.id.button_SI_SignIn);
+
+
+        // Action Sign In
+        button_SignIn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+
+        });
 
     }
 

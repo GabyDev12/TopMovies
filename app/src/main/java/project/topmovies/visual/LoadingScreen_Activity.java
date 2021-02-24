@@ -27,9 +27,9 @@ public class LoadingScreen_Activity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intentLoadingScreen = new Intent(LoadingScreen_Activity.this, Start_Activity.class);
+                Intent intent_HomeScreen = new Intent(LoadingScreen_Activity.this, HomeScreen_Activity.class);
 
-                startActivity(intentLoadingScreen);
+                startActivity(intent_HomeScreen);
 
                 finish();
 

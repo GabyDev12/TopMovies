@@ -6,6 +6,4 @@ public class statusApp {
 
     public static boolean loggedIn = false;
 
-    public static User userLogged = null;
-
 }

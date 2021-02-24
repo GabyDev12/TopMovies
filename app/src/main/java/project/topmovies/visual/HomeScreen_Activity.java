@@ -4,6 +4,7 @@ package project.topmovies.visual;
 import project.topmovies.*;
 import project.topmovies.logic.adapters.ViewPager_Adapter;
 import project.topmovies.visual.fragments.*;
+import static project.topmovies.logic.statusApp.*;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import android.widget.FrameLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class HomeScreen_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,6 +48,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
     TabLayout tabLayoutContainer;
     TabItem item_billboard, item_comingsoon;
 
+    private FirebaseAuth mAuth;
+
 
     // ACTIVITY ACTIONS //
 
@@ -59,6 +63,10 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         setSupportActionBar(toolbar);
 
 
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+
         // Container for all fragments to load
         frag_container = findViewById(R.id.fragment_container);
 
@@ -68,24 +76,21 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         navigationView = findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*
+        // If a user is logged in or not
+        if (loggedIn == true) {
 
-        // Change header of the NavigationView
-        nav_Header = navigationView.getHeaderView(0);
+            // Change header of the NavigationView
+            nav_Header = navigationView.getHeaderView(0);
 
-        navigationView.removeHeaderView(nav_Header);
-        navigationView.inflateHeaderView(R.layout.drawer_header_nologged);
+            navigationView.removeHeaderView(nav_Header);
+            navigationView.inflateHeaderView(R.layout.drawer_header_logged);
 
-        */
+            // Change menu of the NavigationView
+            nav_Menu = navigationView.getMenu();
 
-        /*
+            nav_Menu.setGroupVisible(R.id.group_userOptions, true);
 
-        // Change menu of the NavigationView
-        nav_Menu = navigationView.getMenu();
-
-        nav_Menu.findItem(R.id.nav_Settings).setVisible(false);
-
-        */
+        }
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openNavView, R.string.closeNavView);
 
