@@ -7,6 +7,12 @@ public class User {
     private String email;
 
 
+    public User(String email) {
+
+        this.email = email;
+
+    }
+
     public User(String name, String lastName, String email) {
 
         this.name = name;

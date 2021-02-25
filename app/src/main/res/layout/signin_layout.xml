@@ -63,6 +63,20 @@
         android:text="SIGN IN"
         android:textSize="20dp" />
 
+    <Button
+        android:id="@+id/button_SI_gSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_SI_SignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/google_logo"
+        android:text="SIGN WITH GOOGLE"
+        android:textColor="@color/black" />
+
     <ProgressBar
         android:id="@+id/progressBar_SignIn"
         style="?android:attr/progressBarStyleLarge"

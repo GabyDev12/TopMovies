@@ -28,6 +28,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
@@ -61,6 +64,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
     TabItem item_billboard, item_comingsoon;
 
     private FirebaseAuth mAuth;
+
+    private GoogleSignInClient mGoogleSignInClient;
 
 
     // ACTIVITY ACTIONS //
@@ -119,33 +124,38 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             nav_UserImage = nav_Header.findViewById(R.id.imageView_UserImage);
             nav_Username = nav_Header.findViewById(R.id.textView_UserName);
 
-            FirebaseDatabase.getInstance().getReference("users")
-                    .child(mAuth.getCurrentUser().getUid())
-                    .get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            nav_Username.setText(mAuth.getCurrentUser().getEmail());
 
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {      // Check if the user information was loaded correctly
-
-                    if (task.isSuccessful()) {
-
-                        nav_Username.setText(task.getResult().child("name").getValue(String.class));
-
-                    }
-
-                    else {
-
-                        Toast.makeText(HomeScreen_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
-
-                    }
-
-                }
-
-            });
+            /**
+             * FirebaseDatabase.getInstance().getReference("users")
+             *                     .child(mAuth.getCurrentUser().getUid())
+             *                     .get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+             *
+             *                 @Override
+             *                 public void onComplete(@NonNull Task<DataSnapshot> task) {      // Check if the user information was loaded correctly
+             *
+             *                     if (task.isSuccessful()) {
+             *
+             *                         nav_Username.setText(task.getResult().child("name").getValue(String.class));
+             *
+             *                     }
+             *
+             *                     else {
+             *
+             *                         Toast.makeText(HomeScreen_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
+             *
+             *                     }
+             *
+             *                 }
+             *
+             *             });
+             */
 
             // Change menu of the NavigationView
             nav_Menu = navigationView.getMenu();
 
             nav_Menu.setGroupVisible(R.id.group_userOptions, true);
+            nav_Menu.findItem(R.id.nav_Settings).setVisible(true);
 
         }
 
@@ -197,7 +207,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
 
-            drawerLayout.closeDrawers();
+            drawerLayout.closeDrawer(GravityCompat.START);
 
         }
 
@@ -283,7 +293,48 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_SignOut:
 
-                // Sign out action
+                // Firebase sign out
+                mAuth.signOut();
+
+                loggedIn = false;
+                actualUser = null;
+
+
+                // Google sign out
+                if (gAuth == true) {
+
+                    // Configure Google Sign In
+                    GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                            .requestIdToken("209581455260-2qkd36kiu1vi8gqsumbrqrn6o7noi8gf.apps.googleusercontent.com")
+                            .requestEmail()
+                            .build();
+
+                    mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+
+                    mGoogleSignInClient.signOut()
+                            .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) { }
+
+                            });
+
+                    mGoogleSignInClient.revokeAccess()
+                            .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) { }
+
+                            });
+
+                    gAuth = false;
+
+                }
+
+                this.recreate();        // Try to reduce the transition effect
+
+                Toast.makeText(HomeScreen_Activity.this, "Signed out successfully!", Toast.LENGTH_LONG).show();
 
                 break;
 
