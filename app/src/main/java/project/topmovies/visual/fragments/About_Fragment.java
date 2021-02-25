@@ -14,10 +14,19 @@ import android.view.ViewGroup;
 
 public class About_Fragment extends Fragment {
 
+    // VARIABLES //
+
+    private View thisView;
+
+
+    // FRAGMENT ACTIONS //
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.about_fraglayout, container, false);
+        thisView = inflater.inflate(R.layout.about_fraglayout, container, false);
+
+        return thisView;
 
     }
 

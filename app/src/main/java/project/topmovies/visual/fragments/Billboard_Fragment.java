@@ -20,6 +20,8 @@ import java.util.List;
 
 public class Billboard_Fragment extends Fragment {
 
+    // VARIABLES //
+
     private View thisView;
 
     private RecyclerView mRecyclerView;
@@ -27,6 +29,8 @@ public class Billboard_Fragment extends Fragment {
 
     private List<String> myDataSet;
 
+
+    // FRAGMENT ACTIONS //
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

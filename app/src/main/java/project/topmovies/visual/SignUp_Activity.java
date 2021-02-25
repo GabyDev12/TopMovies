@@ -10,7 +10,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -151,7 +150,7 @@ public class SignUp_Activity extends AppCompatActivity {
                                         User userCreated = new User(name, lastName, email);
 
                                         FirebaseDatabase.getInstance().getReference("users")
-                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .child(mAuth.getCurrentUser().getUid())
                                                 .setValue(userCreated).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                             @Override
@@ -161,13 +160,12 @@ public class SignUp_Activity extends AppCompatActivity {
 
                                                     // Save login
                                                     loggedIn = true;
+                                                    actualUser = userCreated;
 
-                                                    // Start Profile_Activity
+
+                                                    // Return to HomeScreen_Activity
 
                                                     Toast.makeText(SignUp_Activity.this, "Signed up successfully!", Toast.LENGTH_LONG).show();
-
-                                                    // Intent intent_Profile = new Intent(SignUp_Activity.this, Profile_Activity.class);
-                                                    // startActivity(intent_Profile);
 
                                                     finish();
 

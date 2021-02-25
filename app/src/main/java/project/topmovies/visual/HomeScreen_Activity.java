@@ -2,10 +2,12 @@ package project.topmovies.visual;
 
 
 import project.topmovies.*;
+import project.topmovies.logic.User;
 import project.topmovies.logic.adapters.ViewPager_Adapter;
 import project.topmovies.visual.fragments.*;
 import static project.topmovies.logic.statusApp.*;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,11 +24,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class HomeScreen_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,6 +46,9 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     FrameLayout frag_container;
+
+    ImageView nav_UserImage;
+    TextView nav_Username;
     View nav_Header;
     Menu nav_Menu;
 
@@ -52,6 +64,15 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
 
     // ACTIVITY ACTIONS //
+
+    @Override
+    protected void onRestart() {
+
+        super.onRestart();
+
+        this.recreate();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +97,13 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         navigationView = findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
 
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openNavView, R.string.closeNavView);
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        navigationView.setCheckedItem(R.id.nav_Home);
+
         // If a user is logged in or not
         if (loggedIn == true) {
 
@@ -85,6 +113,35 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             navigationView.removeHeaderView(nav_Header);
             navigationView.inflateHeaderView(R.layout.drawer_header_logged);
 
+            // Update the data of the header
+            nav_Header = navigationView.getHeaderView(0);
+
+            nav_UserImage = nav_Header.findViewById(R.id.imageView_UserImage);
+            nav_Username = nav_Header.findViewById(R.id.textView_UserName);
+
+            FirebaseDatabase.getInstance().getReference("users")
+                    .child(mAuth.getCurrentUser().getUid())
+                    .get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {      // Check if the user information was loaded correctly
+
+                    if (task.isSuccessful()) {
+
+                        nav_Username.setText(task.getResult().child("name").getValue(String.class));
+
+                    }
+
+                    else {
+
+                        Toast.makeText(HomeScreen_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
+
+                    }
+
+                }
+
+            });
+
             // Change menu of the NavigationView
             nav_Menu = navigationView.getMenu();
 
@@ -92,12 +149,12 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         }
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openNavView, R.string.closeNavView);
+        // Remove the current user of Firebase
+        else {
 
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
+            FirebaseAuth.getInstance().signOut();
 
-        navigationView.setCheckedItem(R.id.nav_Home);
+        }
 
 
         // Configuration for ViewPager
@@ -135,6 +192,23 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+
+            drawerLayout.closeDrawers();
+
+        }
+
+        else {
+
+            super.onBackPressed();
+
+        }
+
+    }
+
 
     // Configuration for sign up/sign in buttons
 
@@ -151,14 +225,6 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         Intent intentSignIn = new Intent(HomeScreen_Activity.this, SignIn_Activity.class);
 
         startActivity(intentSignIn);
-
-    }
-
-    public void nav_btnGSignIn(View v) {
-
-        Intent intentGSignIn = new Intent(HomeScreen_Activity.this, gSignIn_Activity.class);
-
-        startActivity(intentGSignIn);
 
     }
 
