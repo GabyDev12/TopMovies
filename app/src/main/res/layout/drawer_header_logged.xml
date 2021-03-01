@@ -22,7 +22,6 @@
             android:layout_below="@+id/imageView_UserImage"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:text="patata"
             android:textColor="@color/yellow"
             android:textSize="25dp" />
 
