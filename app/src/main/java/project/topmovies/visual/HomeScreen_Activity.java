@@ -332,7 +332,23 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
                 }
 
-                this.recreate();        // Try to reduce the transition effect
+
+                // ---> Fix empty space <---
+
+                // Change header of the NavigationView
+                nav_Header = navigationView.getHeaderView(0);
+
+                navigationView.removeHeaderView(nav_Header);
+                navigationView.inflateHeaderView(R.layout.drawer_header_nologged);
+
+                // Change menu of the NavigationView
+                nav_Menu = navigationView.getMenu();
+
+                nav_Menu.setGroupVisible(R.id.group_userOptions, false);
+                nav_Menu.findItem(R.id.nav_Settings).setVisible(false);
+
+
+                // Inform the user
 
                 Toast.makeText(HomeScreen_Activity.this, "Signed out successfully!", Toast.LENGTH_LONG).show();
 
