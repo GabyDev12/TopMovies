@@ -208,6 +208,8 @@ public class SignIn_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                progressBar_SignIn.setVisibility(View.VISIBLE);
+
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
 
                 startActivityForResult(signInIntent, RC_SIGN_IN);
