@@ -2,28 +2,34 @@ package project.topmovies.logic.adapters;
 
 
 import project.topmovies.R;
+import project.topmovies.logic.Movie;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 
 public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<Movie> mData;
 
     private LayoutInflater mInflater;
 
     private Context context;
 
-    public RecyclerView_Adapter(List<String> itemList, Context context) {
+
+    public RecyclerView_Adapter(List<Movie> itemList, Context context) {
 
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
@@ -50,36 +56,41 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
     @Override
     public void onBindViewHolder(final RecyclerView_Adapter.ViewHolder holder, final int position) {
 
-        holder.bindData(mData.get(position));
-        holder.movie_cardView.setOnClickListener(new View.OnClickListener() {
+        // Get the current movie
+        Movie currentMovie = mData.get(position);
+
+
+        // Load the poster of the movie
+        Picasso.with(context)
+                .load(currentMovie.getPoster())
+                .fit()
+                .centerCrop()
+                .into(holder.imageView_Movie);
+
+
+        // Action when a movie is clicked
+        holder.imageView_Movie.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                
+
+
+
             }
+
         });
-
-    }
-
-    public void setItems(List<String> items) {
-
-        mData = items;
 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
-        CardView movie_cardView;
+        ImageView imageView_Movie;
 
         ViewHolder(View itemView) {
 
             super(itemView);
-            movie_cardView = itemView.findViewById(R.id.movie_card);
 
-        }
-
-        void bindData(final String item) {
-
+            imageView_Movie = itemView.findViewById(R.id.imageView_Movie);
 
         }
 

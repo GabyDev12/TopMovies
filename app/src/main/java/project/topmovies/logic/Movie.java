@@ -8,11 +8,11 @@ public class Movie {
     private List<String> actors;
     private List<String> categories;
     private List<String> director;
-    private String poster;
+    private String posterURL;
     private Date releaseDate;
     private int runtime;
     private String synopsis;
-    private String trailer;
+    private String trailerURL;
     private int year;
 
 
@@ -21,11 +21,11 @@ public class Movie {
         this.actors = actors;
         this.categories = categories;
         this.director = director;
-        this.poster = poster;
+        this.posterURL = poster;
         this.releaseDate = releaseDate;
         this.runtime = runtime;
         this.synopsis = synopsis;
-        this.trailer = trailer;
+        this.trailerURL = trailer;
         this.year = year;
 
     }
@@ -56,11 +56,11 @@ public class Movie {
     }
 
     public String getPoster() {
-        return poster;
+        return posterURL;
     }
 
     public void setPoster(String poster) {
-        this.poster = poster;
+        this.posterURL = poster;
     }
 
     public Date getReleaseDate() {
@@ -88,11 +88,11 @@ public class Movie {
     }
 
     public String getTrailer() {
-        return trailer;
+        return trailerURL;
     }
 
     public void setTrailer(String trailer) {
-        this.trailer = trailer;
+        this.trailerURL = trailer;
     }
 
     public int getYear() {
