@@ -2,10 +2,9 @@ package project.topmovies.visual;
 
 
 import project.topmovies.*;
-import project.topmovies.logic.User;
 import project.topmovies.logic.adapters.ViewPager_Adapter;
+import project.topmovies.logic.statusApp;
 import project.topmovies.visual.fragments.*;
-import static project.topmovies.logic.statusApp.*;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -37,8 +36,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class HomeScreen_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,6 +82,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_layout);
 
+
+        // Configuration for Toolbar
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
@@ -110,7 +109,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         navigationView.setCheckedItem(R.id.nav_Home);
 
         // If a user is logged in or not
-        if (loggedIn == true) {
+        if (statusApp.getInstance().loggedIn == true) {
 
             // Change header of the NavigationView
             nav_Header = navigationView.getHeaderView(0);
@@ -124,32 +123,16 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             nav_UserImage = nav_Header.findViewById(R.id.imageView_UserImage);
             nav_Username = nav_Header.findViewById(R.id.textView_UserName);
 
+            // Set name of user (Normal user)
             nav_Username.setText(mAuth.getCurrentUser().getEmail());
+            // nav_Username.setText(statusApp.getInstance().actualUser.getName());      <-- Check this
 
-            /**
-             * FirebaseDatabase.getInstance().getReference("users")
-             *                     .child(mAuth.getCurrentUser().getUid())
-             *                     .get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-             *
-             *                 @Override
-             *                 public void onComplete(@NonNull Task<DataSnapshot> task) {      // Check if the user information was loaded correctly
-             *
-             *                     if (task.isSuccessful()) {
-             *
-             *                         nav_Username.setText(task.getResult().child("name").getValue(String.class));
-             *
-             *                     }
-             *
-             *                     else {
-             *
-             *                         Toast.makeText(HomeScreen_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
-             *
-             *                     }
-             *
-             *                 }
-             *
-             *             });
-             */
+            // Set email of user (Google user)
+            if (statusApp.getInstance().gAuth == true) {
+
+                nav_Username.setText(mAuth.getCurrentUser().getEmail());
+
+            }
 
             // Change menu of the NavigationView
             nav_Menu = navigationView.getMenu();
@@ -296,12 +279,12 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                 // Firebase sign out
                 mAuth.signOut();
 
-                loggedIn = false;
-                actualUser = null;
+                statusApp.getInstance().loggedIn = false;
+                statusApp.getInstance().actualUser = null;
 
 
                 // Google sign out
-                if (gAuth == true) {
+                if (statusApp.getInstance().gAuth == true) {
 
                     // Configure Google Sign In
                     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -328,7 +311,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
                             });
 
-                    gAuth = false;
+                    statusApp.getInstance().gAuth = false;
 
                 }
 

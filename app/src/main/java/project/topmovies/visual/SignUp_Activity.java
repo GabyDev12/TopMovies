@@ -3,7 +3,7 @@ package project.topmovies.visual;
 
 import project.topmovies.*;
 import project.topmovies.logic.User;
-import static project.topmovies.logic.statusApp.*;
+import project.topmovies.logic.statusApp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -159,8 +159,8 @@ public class SignUp_Activity extends AppCompatActivity {
                                                 if (task.isSuccessful()) {
 
                                                     // Save login
-                                                    loggedIn = true;
-                                                    actualUser = userCreated;
+                                                    statusApp.getInstance().loggedIn = true;
+                                                    statusApp.getInstance().actualUser = userCreated;
 
 
                                                     // Return to HomeScreen_Activity

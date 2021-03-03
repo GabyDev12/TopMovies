@@ -3,7 +3,7 @@ package project.topmovies.visual;
 
 import project.topmovies.*;
 import project.topmovies.logic.User;
-import static project.topmovies.logic.statusApp.*;
+import project.topmovies.logic.statusApp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,8 +31,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
-
-import static project.topmovies.logic.statusApp.loggedIn;
 
 
 public class SignIn_Activity extends AppCompatActivity {
@@ -148,7 +146,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
                                                 if (task.isSuccessful()) {
 
-                                                    actualUser = new User(
+                                                    statusApp.getInstance().actualUser = new User(
                                                             task.getResult().child("name").getValue(String.class),
                                                             task.getResult().child("lastName").getValue(String.class),
                                                             task.getResult().child("email").getValue(String.class));
@@ -166,7 +164,7 @@ public class SignIn_Activity extends AppCompatActivity {
                                         });
 
                                         // Save login
-                                        loggedIn = true;
+                                        statusApp.getInstance().loggedIn = true;
 
 
                                         // Return to HomeScreen_Activity
@@ -266,12 +264,12 @@ public class SignIn_Activity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             // Save login
-                            loggedIn = true;
-                            gAuth = true;
+                            statusApp.getInstance().loggedIn = true;
+                            statusApp.getInstance().gAuth = true;
 
 
                             // Save user data
-                            actualUser = new User(mAuth.getCurrentUser().getEmail());
+                            statusApp.getInstance().actualUser = new User(mAuth.getCurrentUser().getEmail());
 
 
                             // Return to HomeScreen_Activity
