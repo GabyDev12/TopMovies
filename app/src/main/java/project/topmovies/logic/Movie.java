@@ -1,23 +1,25 @@
 package project.topmovies.logic;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.List;
 
-public class Movie {
+public class Movie implements Serializable {
 
+    private String title;
     private List<String> actors;
     private List<String> categories;
     private List<String> director;
     private String posterURL;
-    private Date releaseDate;
-    private int runtime;
+    private String releaseDate;
+    private String runtime;
     private String synopsis;
     private String trailerURL;
-    private int year;
+    private String year;
 
 
-    public Movie(List<String> actors, List<String> categories, List<String> director, String poster, Date releaseDate, int runtime, String synopsis, String trailer, int year) {
+    public Movie(String title, List<String> actors, List<String> categories, List<String> director, String poster, String releaseDate, String runtime, String synopsis, String trailer, String year) {
 
+        this.title = title;
         this.actors = actors;
         this.categories = categories;
         this.director = director;
@@ -30,6 +32,14 @@ public class Movie {
 
     }
 
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public List<String> getActors() {
         return actors;
@@ -63,19 +73,19 @@ public class Movie {
         this.posterURL = poster;
     }
 
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
-    public int getRuntime() {
+    public String getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(int runtime) {
+    public void setRuntime(String runtime) {
         this.runtime = runtime;
     }
 
@@ -95,11 +105,11 @@ public class Movie {
         this.trailerURL = trailer;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 

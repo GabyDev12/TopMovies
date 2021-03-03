@@ -85,6 +85,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         // Configuration for Toolbar
         Toolbar toolbar = findViewById(R.id.main_toolbar);
+        toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
 
 
@@ -233,6 +234,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_Home:
 
+                getSupportActionBar().setTitle("Home");
+
                 tabLayoutContainer.setVisibility(View.VISIBLE);
                 contentPage.setVisibility(View.VISIBLE);
 
@@ -243,6 +246,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                 break;
 
             case R.id.nav_MyFilms:
+
+                getSupportActionBar().setTitle("My Films");
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);
@@ -259,6 +264,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                 break;
 
             case R.id.nav_Profile:
+
+                getSupportActionBar().setTitle("Profile");
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);
@@ -339,6 +346,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_Settings:
 
+                getSupportActionBar().setTitle("Settings");
+
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);
 
@@ -354,6 +363,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                 break;
 
             case R.id.nav_About:
+
+                getSupportActionBar().setTitle("About");
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);

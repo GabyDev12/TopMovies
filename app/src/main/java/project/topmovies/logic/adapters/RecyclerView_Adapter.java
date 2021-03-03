@@ -3,17 +3,16 @@ package project.topmovies.logic.adapters;
 
 import project.topmovies.R;
 import project.topmovies.logic.Movie;
+import project.topmovies.visual.MovieDetails_Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.squareup.picasso.Picasso;
 
@@ -74,7 +73,12 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
             @Override
             public void onClick(View v) {
 
+                Intent movieInfo = new Intent(context, MovieDetails_Activity.class);
 
+                // Pass movie object to the new activity
+                movieInfo.putExtra("MOVIE", currentMovie);
+
+                context.startActivity(movieInfo);
 
             }
 

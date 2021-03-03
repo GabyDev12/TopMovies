@@ -24,10 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -60,7 +57,6 @@ public class Billboard_Fragment extends Fragment {
 
 
         // Get reference of data in Firebase
-
         moviesRef = FirebaseDatabase.getInstance().getReference("movies");
 
 
@@ -76,30 +72,63 @@ public class Billboard_Fragment extends Fragment {
                 // Loop through all movies and store each one in the list
                 for (DataSnapshot movieDS : snapshot.getChildren()) {
 
+                    // Get "Title"
+                    String title = movieDS.getKey();
+
                     // Get "Actors"
                     List<String> actors = new ArrayList<>();
 
-                    for (DataSnapshot actorsDS : movieDS.child("actors").getChildren()) {
+                    if (movieDS.child("actors").hasChildren()) {
 
-                        actors.add(actorsDS.getValue(String.class));
+                        for (DataSnapshot actorsDS : movieDS.child("actors").getChildren()) {
+
+                            actors.add(actorsDS.getValue(String.class));
+
+                        }
+
+                    }
+
+                    else  {
+
+                        actors.add(movieDS.child("actors").getValue(String.class));
 
                     }
 
                     // Get "Categories"
                     List<String> categories = new ArrayList<>();
 
-                    for (DataSnapshot categoriesDS : movieDS.child("categories").getChildren()) {
+                    if (movieDS.child("categories").hasChildren()) {
 
-                        categories.add(categoriesDS.getValue(String.class));
+                        for (DataSnapshot categoriesDS : movieDS.child("categories").getChildren()) {
+
+                            categories.add(categoriesDS.getValue(String.class));
+
+                        }
+
+                    }
+
+                    else  {
+
+                        categories.add(movieDS.child("categories").getValue(String.class));
 
                     }
 
                     // Get "Director"
                     List<String> director = new ArrayList<>();
 
-                    for (DataSnapshot directorDS : movieDS.child("director").getChildren()) {
+                    if (movieDS.child("director").hasChildren()) {
 
-                        director.add(directorDS.getValue(String.class));
+                        for (DataSnapshot directorDS : movieDS.child("director").getChildren()) {
+
+                            director.add(directorDS.getValue(String.class));
+
+                        }
+
+                    }
+
+                    else  {
+
+                        director.add(movieDS.child("director").getValue(String.class));
 
                     }
 
@@ -107,21 +136,10 @@ public class Billboard_Fragment extends Fragment {
                     String posterURL = movieDS.child("poster").getValue(String.class);
 
                     // Get "Release Date"
-                    Date releaseDate = null;
-
-                    try {
-
-                        releaseDate = new SimpleDateFormat("dd/MM/yyyy").parse(movieDS.child("release-date").getValue(String.class));
-
-                    } catch (ParseException e) {
-
-                        e.printStackTrace();
-
-                    }
+                    String releaseDate = movieDS.child("release-date").getValue(String.class);
 
                     // Get "Runtime"
-                    long lRuntime = movieDS.child("runtime").getValue(Long.class);
-                    int runtime = (int) lRuntime ;
+                    String runtime = Long.toString(movieDS.child("runtime").getValue(Long.class));
 
                     // Get "Synopsis"
                     String synopsis = movieDS.child("synopsis").getValue(String.class);
@@ -130,12 +148,11 @@ public class Billboard_Fragment extends Fragment {
                     String trailerURL = movieDS.child("trailer").getValue(String.class);
 
                     // Get "Year"
-                    long lYear = movieDS.child("year").getValue(Long.class);
-                    int year = (int) lYear;
+                    String year = Long.toString(movieDS.child("year").getValue(Long.class));
 
 
                     // Create movie object and add it to the list
-                    Movie movie = new Movie(actors, categories, director, posterURL, releaseDate, runtime, synopsis, trailerURL, year);
+                    Movie movie = new Movie(title, actors, categories, director, posterURL, releaseDate, runtime, synopsis, trailerURL, year);
 
                     moviesList.add(movie);
 
