@@ -9,13 +9,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -199,7 +199,12 @@ public class MovieDetails_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intentDateTimeTicket = new Intent(MovieDetails_Activity.this, Booking_Activity.class);
 
+                // Pass movie object to the new activity
+                intentDateTimeTicket.putExtra("MOVIE", currentMovie);
+
+                startActivity(intentDateTimeTicket);
 
             }
 

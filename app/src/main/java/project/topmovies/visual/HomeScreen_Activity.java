@@ -110,7 +110,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         navigationView.setCheckedItem(R.id.nav_Home);
 
         // If a user is logged in or not
-        if (statusApp.getInstance().loggedIn == true) {
+        if (statusApp.getInstance().loggedIn) {
 
             // Change header of the NavigationView
             nav_Header = navigationView.getHeaderView(0);
