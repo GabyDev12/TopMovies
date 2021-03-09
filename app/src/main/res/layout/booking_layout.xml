@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/textView_MovieDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_DateSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_MovieDate"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:text="Select a Date"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/textView_MovieDateSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_MovieDate"
+            android:layout_alignBaseline="@+id/button_DateSelection"
+            android:layout_margin="15dp"
+            android:layout_toRightOf="@id/button_DateSelection"
+            android:text="xxxx-xx-xx"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView_MovieTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_DateSelection"
+            android:layout_marginTop="15dp"
+            android:text="Times"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner_MovieTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_MovieTimes"
+            android:layout_margin="15dp"
+            android:entries="@array/movieTimes"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/textView_MovieSeats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_MovieTimes"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="Seats"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_SeatSelection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView_MovieSeats"
+            android:background="#4D323232">
+
+            <LinearLayout
+                android:id="@+id/layoutSeat"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/button_Checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout_SeatSelection"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Checkout" />
+
+    </RelativeLayout>
+
+</ScrollView>

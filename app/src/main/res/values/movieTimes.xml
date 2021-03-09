@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="movieTimes">
+
+        <item>Select a time...</item>
+
+        <item>17:15</item>
+        <item>17:45</item>
+        <item>18:00</item>
+        <item>19:35</item>
+        <item>20:15</item>
+        <item>20:45</item>
+
+    </string-array>
+
+</resources>
