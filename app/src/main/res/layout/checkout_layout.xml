@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="60dp">
+
+        <TextView
+            android:id="@+id/textView_MovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="Movie Title"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_tDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_MovieTitle"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Date:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_tDate"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="xxxx - xx - xx"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/textView_tTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_MovieTitle"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/textView_Date"
+            android:text="Time:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_tTime"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/textView_Date"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/textView_tTickets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_Date"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp"
+            android:text="Tickets:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_Tickets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_Date"
+            android:layout_alignBaseline="@+id/textView_tTickets"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/textView_tTickets"
+            android:text="8"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/textView_tSeats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_tTickets"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Seats:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_Seats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_tTickets"
+            android:layout_alignBaseline="@+id/textView_tSeats"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_toRightOf="@+id/textView_tSeats"
+            android:text="14, 21, 2"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/textView_tFinalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_Seats"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Total Price:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_FinalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_tFinalPrice"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="14,80 €"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/button_Checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_FinalPrice"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:text="Buy"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+</ScrollView>

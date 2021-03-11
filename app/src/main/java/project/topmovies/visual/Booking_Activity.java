@@ -24,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,8 @@ import java.util.List;
 public class Booking_Activity extends AppCompatActivity implements View.OnClickListener {
 
     // VARIABLES //
+
+    private String selectedMovieTitle;
 
     Button button_DateSelection;
     TextView textView_MovieDateSelected;
@@ -60,7 +63,7 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
     int STATUS_BOOKED = 2;
     String selectedIds = "";
 
-    List<String> seatsSelected;
+    private List<String> seatsSelected;
 
 
     Button button_Checkout;
@@ -77,7 +80,7 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
 
         // Load movie object
-        Movie selectedMovie = (Movie) getIntent().getSerializableExtra("MOVIE");
+        selectedMovieTitle = (String) getIntent().getSerializableExtra("MOVIE");
 
 
         // Configuration for Toolbar
@@ -273,15 +276,15 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
                 else {
 
-                    /*Intent intentSeatSelection = new Intent(Booking_Activity.this, SeatSelection_Activity.class);
+                    Intent intentCheckout = new Intent(Booking_Activity.this, Checkout_Activity.class);
 
-                    // Pass movie object, selected time an amount of tickets to the new activity
-                    intentSeatSelection.putExtra("MOVIE", selectedMovie);
-                    intentSeatSelection.putExtra("DATE", dateSelected);
-                    intentSeatSelection.putExtra("TIME", timeSelected);
-                    intentSeatSelection.putExtra("SEATS", seatsSelected);
+                    // Pass movie object, selected time an amount of seats to the new activity
+                    intentCheckout.putExtra("MOVIE", selectedMovieTitle);
+                    intentCheckout.putExtra("DATE", dateSelected);
+                    intentCheckout.putExtra("TIME", timeSelected);
+                    intentCheckout.putExtra("SEATS", (Serializable) seatsSelected);
 
-                    startActivity(intentSeatSelection);*/
+                    startActivity(intentCheckout);
 
                 }
 

@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/spinner_MovieTimes"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:text="Seats"
             android:textColor="@color/white"
             android:textSize="18dp"
@@ -78,14 +78,52 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/textView_MovieSeats"
-            android:background="#4D323232">
+            android:background="#33000000">
+
+            <TextView
+                android:id="@+id/textView_CinemaScreen"
+                android:layout_width="270dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:background="#D80000"
+                android:text="Screen"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:id="@+id/layoutSeat"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/textView_CinemaScreen"
                 android:layout_centerHorizontal="true"
                 android:orientation="vertical" />
+
+            <ImageView
+                android:id="@+id/imageView_SeatsInfo"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/layoutSeat"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/gray_dark"
+                android:src="@drawable/ic_seats_info" />
+
+            <TextView
+                android:id="@+id/textView_PricePerTicket"
+                android:layout_width="270dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/imageView_SeatsInfo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:text="Price Ticket --> 2,50 €"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
         </RelativeLayout>
 

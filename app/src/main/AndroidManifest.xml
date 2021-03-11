@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TopMovies">
+        <activity android:name=".visual.Checkout_Activity"></activity>
         <activity android:name=".visual.Booking_Activity" />
         <activity android:name=".visual.MovieDetails_Activity">
             <meta-data
