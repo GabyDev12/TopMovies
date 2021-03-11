@@ -24,6 +24,8 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
     // VARIABLES //
 
+    private Movie currentMovie;
+
     ImageView imageView_Poster;
 
     TextView textView_Runtime;
@@ -48,7 +50,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
 
         // Load movie object
-        Movie currentMovie = (Movie) getIntent().getSerializableExtra("MOVIE");
+        currentMovie = (Movie) getIntent().getSerializableExtra("MOVIE");
 
 
         // Configuration for Toolbar
@@ -202,7 +204,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
                 Intent intentDateTimeTicket = new Intent(MovieDetails_Activity.this, Booking_Activity.class);
 
                 // Pass movie object to the new activity
-                intentDateTimeTicket.putExtra("MOVIE", currentMovie);
+                intentDateTimeTicket.putExtra("MOVIE", currentMovie.getTitle());
 
                 startActivity(intentDateTimeTicket);
 
