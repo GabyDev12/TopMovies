@@ -263,13 +263,33 @@ public class SignIn_Activity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
+                            // Save user data
+                            statusApp.getInstance().actualUser = new User(mAuth.getCurrentUser().getEmail());
+
+
+                            // Save Uid of Google user and the email in Firebase Database
+                            // If the data exist, it do nothing
+                            FirebaseDatabase.getInstance().getReference("users")
+                                    .child(mAuth.getCurrentUser().getUid())
+                                    .setValue(statusApp.getInstance().actualUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {      // Check if the Google user information was stored in the DB
+
+                                    if (!task.isSuccessful()) {
+
+                                        Toast.makeText(SignIn_Activity.this, "There was a problem storing the user data. Sorry", Toast.LENGTH_LONG).show();
+
+                                    }
+
+                                }
+
+                            });
+
+
                             // Save login
                             statusApp.getInstance().loggedIn = true;
                             statusApp.getInstance().gAuth = true;
-
-
-                            // Save user data
-                            statusApp.getInstance().actualUser = new User(mAuth.getCurrentUser().getEmail());
 
 
                             // Return to HomeScreen_Activity
