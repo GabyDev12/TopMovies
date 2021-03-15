@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="60dp">
+
+        <com.github.barteksc.pdfviewer.PDFView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/pdfView"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar_TicketsBought"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/cyan"
+            android:indeterminateTintMode="src_atop" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView_Enjoy"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/gif_enjoy_the_movie"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView_MovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gifImageView_Enjoy"
+            android:layout_centerHorizontal="true"
+            android:text="You can download your ticket now or in 'My Films' section"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            tools:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button_DownloadTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_MovieTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Download Ticket"
+            android:textSize="14dp"
+            tools:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button_Finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_DownloadTicket"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:text="Finish"
+            android:textSize="18dp"
+            tools:visibility="invisible" />
+
+    </RelativeLayout>
+
+</ScrollView>

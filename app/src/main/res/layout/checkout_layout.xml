@@ -143,7 +143,7 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/button_Checkout"
+            android:id="@+id/button_Buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView_FinalPrice"

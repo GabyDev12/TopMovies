@@ -2,14 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="project.topmovies">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TopMovies">
-        <activity android:name=".visual.Checkout_Activity"></activity>
+        <activity
+            android:name=".visual.PDFViewer_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar"></activity>
+        <activity
+            android:name=".visual.TicketsBought_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
+        <activity android:name=".visual.Checkout_Activity" />
         <activity android:name=".visual.Booking_Activity" />
         <activity android:name=".visual.MovieDetails_Activity">
             <meta-data
