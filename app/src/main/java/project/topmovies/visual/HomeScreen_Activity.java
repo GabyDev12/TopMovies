@@ -60,6 +60,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
     TabLayout tabLayoutContainer;
     TabItem item_billboard, item_comingsoon;
 
+
     private FirebaseAuth mAuth;
 
     private GoogleSignInClient mGoogleSignInClient;
@@ -192,6 +193,19 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
 
             drawerLayout.closeDrawer(GravityCompat.START);
+
+        }
+
+        else if (navigationView.getCheckedItem().getItemId() != R.id.nav_Home) {
+
+            getSupportActionBar().setTitle("Home");
+
+            tabLayoutContainer.setVisibility(View.VISIBLE);
+            contentPage.setVisibility(View.VISIBLE);
+
+            frag_container.setVisibility(View.INVISIBLE);
+
+            navigationView.setCheckedItem(R.id.nav_Home);
 
         }
 

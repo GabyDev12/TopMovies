@@ -3,21 +3,27 @@ package project.topmovies.visual;
 
 import project.topmovies.*;
 import project.topmovies.logic.Movie;
+import project.topmovies.logic.statusApp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.time.LocalDate;
 
 
 public class MovieDetails_Activity extends AppCompatActivity {
@@ -25,6 +31,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
     // VARIABLES //
 
     private Movie currentMovie;
+
 
     ImageView imageView_Poster;
 
@@ -198,15 +205,38 @@ public class MovieDetails_Activity extends AppCompatActivity {
         // Action Watch movie
         button_WatchMovie.setOnClickListener(new View.OnClickListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
-                Intent intentDateTimeTicket = new Intent(MovieDetails_Activity.this, Booking_Activity.class);
+                // Check if the movie is available in the actual date
+                if (!LocalDate.parse(currentMovie.getReleaseDate()).isAfter(LocalDate.now())) {
 
-                // Pass movie object to the new activity
-                intentDateTimeTicket.putExtra("MOVIE", currentMovie.getTitle());
+                    // Check if the user is logged in
+                    if (statusApp.getInstance().loggedIn) {
 
-                startActivity(intentDateTimeTicket);
+                        Intent intentDateTimeTicket = new Intent(MovieDetails_Activity.this, Booking_Activity.class);
+
+                        // Pass movie object to the new activity
+                        intentDateTimeTicket.putExtra("MOVIE", currentMovie.getTitle());
+
+                        startActivity(intentDateTimeTicket);
+
+                    }
+
+                    else {
+
+                        Toast.makeText(MovieDetails_Activity.this, "You have to sign in to watch the movie!", Toast.LENGTH_LONG).show();
+
+                    }
+
+                }
+
+                else {
+
+                    Toast.makeText(MovieDetails_Activity.this, "The movie will be available after the release date. See you there!", Toast.LENGTH_LONG).show();
+
+                }
 
             }
 

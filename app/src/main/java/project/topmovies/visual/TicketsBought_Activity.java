@@ -25,6 +25,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -112,17 +114,7 @@ public class TicketsBought_Activity extends AppCompatActivity {
         // Save movie seen in the user profile
         MovieSeen currentMovieSeen = new MovieSeen(dateSelected, timeSelected, String.valueOf(amountOfTickets), String.valueOf(finalPrice));
 
-
-        // Hide progress bar and show the other items
-        progressBar_TicketsBought.setVisibility(View.GONE);
-
-        gifImageView_Enjoy.setVisibility(View.VISIBLE);
-
-        button_DownloadTicket.setVisibility(View.VISIBLE);
-
-        button_Finish.setVisibility(View.VISIBLE);
-
-        /** mDatabase.child(mAuth.getCurrentUser().getUid())
+        mDatabase.child(mAuth.getCurrentUser().getUid())
                 .child("watchedMovies")
                 .child(selectedMovieTitle)
                 .setValue(currentMovieSeen).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -156,7 +148,7 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
             }
 
-        });*/
+        });
 
 
         // Generate QR Code
@@ -226,7 +218,7 @@ public class TicketsBought_Activity extends AppCompatActivity {
                 canvas.drawText("Price:  " + finalPrice + " €", 110, 73, text);
 
 
-                // finish the page
+                // Finish the page
                 document.finishPage(page);
 
 
@@ -257,6 +249,7 @@ public class TicketsBought_Activity extends AppCompatActivity {
                     e.printStackTrace();
 
                 }
+
 
                 // Close the document
                 document.close();

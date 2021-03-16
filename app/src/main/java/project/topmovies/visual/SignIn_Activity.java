@@ -30,7 +30,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class SignIn_Activity extends AppCompatActivity {
@@ -267,22 +269,46 @@ public class SignIn_Activity extends AppCompatActivity {
                             statusApp.getInstance().actualUser = new User(mAuth.getCurrentUser().getEmail());
 
 
-                            // Save Uid of Google user and the email in Firebase Database
-                            // If the data exist, it do nothing
-                            FirebaseDatabase.getInstance().getReference("users")
-                                    .child(mAuth.getCurrentUser().getUid())
-                                    .setValue(statusApp.getInstance().actualUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            // Check if the user information is already saved in Firebase
+                            FirebaseDatabase.getInstance().getReference("users").addListenerForSingleValueEvent(new ValueEventListener() {
 
                                 @Override
-                                public void onComplete(@NonNull Task<Void> task) {      // Check if the Google user information was stored in the DB
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                    if (!task.isSuccessful()) {
+                                    // If the data not exist
+                                    if (!snapshot.hasChild(mAuth.getCurrentUser().getUid())) {
 
-                                        Toast.makeText(SignIn_Activity.this, "There was a problem storing the user data. Sorry", Toast.LENGTH_LONG).show();
+                                        // Save Uid of Google user and the email in Firebase Database
+                                        FirebaseDatabase.getInstance().getReference("users")
+                                                .child(mAuth.getCurrentUser().getUid())
+                                                .setValue(statusApp.getInstance().actualUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {      // Check if the Google user information was stored in the DB
+
+                                                if (!task.isSuccessful()) {
+
+                                                    Toast.makeText(SignIn_Activity.this, "There was a problem storing the user data. Sorry", Toast.LENGTH_LONG).show();
+
+                                                }
+
+                                            }
+
+                                        });
+
+                                    }
+
+                                    // If the data exist
+                                    else {
+
+                                        // It do nothing, only sign in the Google user
 
                                     }
 
                                 }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) { }
 
                             });
 
