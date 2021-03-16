@@ -356,6 +356,17 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
                 Toast.makeText(HomeScreen_Activity.this, "Signed out successfully!", Toast.LENGTH_LONG).show();
 
+
+                // Go back to home screen
+                getSupportActionBar().setTitle("Home");
+
+                tabLayoutContainer.setVisibility(View.VISIBLE);
+                contentPage.setVisibility(View.VISIBLE);
+
+                frag_container.setVisibility(View.INVISIBLE);
+
+                navigationView.setCheckedItem(R.id.nav_Home);
+
                 break;
 
             case R.id.nav_Settings:
