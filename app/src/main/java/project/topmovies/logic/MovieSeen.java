@@ -2,6 +2,7 @@ package project.topmovies.logic;
 
 public class MovieSeen {
 
+    private String movieTitle;
     private String dateWatched;
     private String timeWatched;
     private String ticketsNumber;
@@ -15,6 +16,20 @@ public class MovieSeen {
         this.finalPrice = finalPrice;
 
     }
+
+    public MovieSeen(String movieTitle, String dateWatched, String timeWatched, String ticketsNumber, String finalPrice) {
+
+        this.movieTitle = movieTitle;
+        this.dateWatched = dateWatched;
+        this.timeWatched = timeWatched;
+        this.ticketsNumber = ticketsNumber;
+        this.finalPrice = finalPrice;
+
+    }
+
+    public String getMovieTitle() { return movieTitle; }
+
+    public void setMovieTitle(String movieTitle) { this.movieTitle = movieTitle; }
 
     public String getDateWatched() { return dateWatched; }
 
