@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 
-public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adapter.ViewHolder> {
+public class RecyclerView_Movie_Adapter extends RecyclerView.Adapter<RecyclerView_Movie_Adapter.ViewHolder> {
 
     private List<Movie> mData;
 
@@ -28,7 +28,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
     private Context context;
 
 
-    public RecyclerView_Adapter(List<Movie> itemList, Context context) {
+    public RecyclerView_Movie_Adapter(List<Movie> itemList, Context context) {
 
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
@@ -44,16 +44,16 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
     }
 
     @Override
-    public RecyclerView_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView_Movie_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = mInflater.inflate(R.layout.movie_cardview, null);
 
-        return new RecyclerView_Adapter.ViewHolder(view);
+        return new RecyclerView_Movie_Adapter.ViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView_Adapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView_Movie_Adapter.ViewHolder holder, final int position) {
 
         // Get the current movie
         Movie currentMovie = mData.get(position);

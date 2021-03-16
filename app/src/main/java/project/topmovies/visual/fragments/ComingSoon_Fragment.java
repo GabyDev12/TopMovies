@@ -3,7 +3,7 @@ package project.topmovies.visual.fragments;
 
 import project.topmovies.*;
 import project.topmovies.logic.Movie;
-import project.topmovies.logic.adapters.RecyclerView_Adapter;
+import project.topmovies.logic.adapters.RecyclerView_Movie_Adapter;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -38,7 +38,7 @@ public class ComingSoon_Fragment extends Fragment {
     private View thisView;
 
     private RecyclerView mRecyclerView;
-    private RecyclerView_Adapter mAdapter;
+    private RecyclerView_Movie_Adapter mAdapter;
 
     private ProgressBar progressBar_ComingSoon;
 
@@ -167,7 +167,7 @@ public class ComingSoon_Fragment extends Fragment {
 
                 }
 
-                mAdapter = new RecyclerView_Adapter(moviesList, container.getContext());
+                mAdapter = new RecyclerView_Movie_Adapter(moviesList, container.getContext());
 
 
                 // Configure RecyclerView
