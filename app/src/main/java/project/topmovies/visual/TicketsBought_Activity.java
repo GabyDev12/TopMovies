@@ -186,7 +186,6 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
                 // GENERATE PDF //
 
-
                 // Create a new document
                 PdfDocument document = new PdfDocument();
 

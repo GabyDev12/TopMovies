@@ -127,7 +127,7 @@ public class MyFilms_Fragment extends Fragment {
 
                             }
 
-                            mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext());
+                            mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext(), getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_container));
 
 
                             // Configure RecyclerView
