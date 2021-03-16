@@ -5,6 +5,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_start">
 
+    <TextView
+        android:id="@+id/textView_noMyFilms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/carter_one"
+        android:text="Ticket Viewer"
+        android:textAlignment="center"
+        android:layout_marginTop="110dp"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"/>
+
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView"
         android:layout_width="350dp"
