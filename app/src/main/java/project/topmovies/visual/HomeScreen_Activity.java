@@ -352,35 +352,12 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                 }
 
 
-                // ---> Fix empty space <---
-
-                // Change header of the NavigationView
-                nav_Header = navigationView.getHeaderView(0);
-
-                navigationView.removeHeaderView(nav_Header);
-                navigationView.inflateHeaderView(R.layout.drawer_header_nologged);
-
-                // Change menu of the NavigationView
-                nav_Menu = navigationView.getMenu();
-
-                nav_Menu.setGroupVisible(R.id.group_userOptions, false);
-                nav_Menu.findItem(R.id.nav_Settings).setVisible(false);
+                // Reload the activity for apply the changes
+                this.recreate();
 
 
                 // Inform the user
-
                 Toast.makeText(HomeScreen_Activity.this, "Signed out successfully!", Toast.LENGTH_LONG).show();
-
-
-                // Go back to home screen
-                getSupportActionBar().setTitle("Home");
-
-                tabLayoutContainer.setVisibility(View.VISIBLE);
-                contentPage.setVisibility(View.VISIBLE);
-
-                frag_container.setVisibility(View.INVISIBLE);
-
-                navigationView.setCheckedItem(R.id.nav_Home);
 
                 break;
 
