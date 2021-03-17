@@ -2,6 +2,7 @@ package project.topmovies.visual;
 
 
 import project.topmovies.*;
+import project.topmovies.logic.statusApp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,6 +41,15 @@ public class PDFViewer_Activity extends AppCompatActivity {
 
         // Load the PDF
         pdfView.fromFile(PDFFile).load();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+
+        statusApp.getInstance().myFilms = true;
 
     }
 

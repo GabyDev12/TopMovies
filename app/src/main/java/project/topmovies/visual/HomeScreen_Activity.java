@@ -58,7 +58,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
     ViewPager contentPage;
     ViewPager_Adapter pAdapter;
     TabLayout tabLayoutContainer;
-    TabItem item_billboard, item_comingsoon;
+    TabItem item_billboard, item_comingSoon;
 
 
     private FirebaseAuth mAuth;
@@ -156,7 +156,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         contentPage = findViewById(R.id.viewPager_Content);
         tabLayoutContainer = findViewById(R.id.tabLayout_Container);
         item_billboard = findViewById(R.id.tabItem_Billboard);
-        item_comingsoon = findViewById(R.id.tabItem_ComingSoon);
+        item_comingSoon = findViewById(R.id.tabItem_ComingSoon);
 
 
         pAdapter = new ViewPager_Adapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, tabLayoutContainer.getTabCount());
@@ -184,6 +184,21 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         });
 
         contentPage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutContainer));
+
+
+        // If it comes from the PDFViewer, load the MyFilms menu option
+        if (statusApp.getInstance().myFilms == true) {
+
+            getSupportActionBar().setTitle("My Films");
+
+            tabLayoutContainer.setVisibility(View.INVISIBLE);
+            contentPage.setVisibility(View.INVISIBLE);
+
+            frag_container.setVisibility(View.VISIBLE);
+
+            navigationView.setCheckedItem(R.id.nav_MyFilms);
+
+        }
 
     }
 

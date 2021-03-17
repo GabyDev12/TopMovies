@@ -10,6 +10,10 @@ public class statusApp {
     public User actualUser = null;
 
 
+    // Check if it comes from MyFilms menu option
+    public boolean myFilms = false;
+
+
     // Singleton configuration
 
     // Private constructor so nobody can instantiate the class
