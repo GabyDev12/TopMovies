@@ -6,6 +6,8 @@ import androidmads.library.qrgenearator.QRGEncoder;
 import pl.droidsonroids.gif.GifImageView;
 import project.topmovies.*;
 import project.topmovies.logic.MovieSeen;
+import project.topmovies.logic.statusApp;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -177,90 +179,94 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
                 // Request permission if it is not granted yet
 
-                if (!checkPermission()) {
+                if (checkPermission()) {
+
+                    // GENERATE PDF //
+
+                    // Create a new document
+                    PdfDocument document = new PdfDocument();
+
+                    // Create a page description
+                    PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(210, 100, 1).create();
+
+                    // Start a page
+                    PdfDocument.Page page = document.startPage(pageInfo);
+
+
+                    // Set content on the page
+                    Canvas canvas = page.getCanvas();
+
+                    // Variables for QR image and text
+                    Paint paint = new Paint();
+                    Paint text = new Paint();
+
+                    // Configuration of the text
+                    text.setTextSize(5);
+                    text.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+
+                    // Load the data
+                    canvas.drawBitmap(ScaledBitmap_QRCode, 5, 0, paint);
+
+                    canvas.drawText("Movie:  " + selectedMovieTitle, 110, 33, text);
+                    canvas.drawText("Date:  " + dateSelected, 110, 43, text);
+                    canvas.drawText("Time:  " + timeSelected, 110, 53, text);
+                    canvas.drawText("Tickets:  " + amountOfTickets, 110, 63, text);
+                    canvas.drawText("Price:  " + finalPrice + " €", 110, 73, text);
+
+
+                    // Finish the page
+                    document.finishPage(page);
+
+
+                    // Create a File for storage the PDF in the phone
+                    String fileName = "Ticket-" + System.currentTimeMillis() + "_" + selectedMovieTitle.replace(" ", "-") + "_" + dateSelected + ".pdf";
+
+                    File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/" + fileName);
+
+
+                    // Save the document in the phone
+                    FileOutputStream outputStream = null;
+
+                    try {
+
+                        file.createNewFile();
+
+                        outputStream = new FileOutputStream(file, false);
+
+                        document.writeTo(outputStream);
+
+                        outputStream.flush();
+                        outputStream.close();
+
+                        Toast.makeText(TicketsBought_Activity.this, "The ticket was successfully saved!", Toast.LENGTH_SHORT).show();
+
+                    } catch (IOException e) {
+
+                        e.printStackTrace();
+
+                    }
+
+
+                    // Close the document
+                    document.close();
+
+
+                    // Open the PDF in a new screen
+                    Intent intentPDFViewer = new Intent(TicketsBought_Activity.this, PDFViewer_Activity.class);
+
+                    // Pass file object
+                    intentPDFViewer.putExtra("PDF", file);
+
+                    startActivity(intentPDFViewer);
+
+                }
+
+                else {
 
                     requestPermission();
 
                 }
 
-
-                // GENERATE PDF //
-
-                // Create a new document
-                PdfDocument document = new PdfDocument();
-
-                // Create a page description
-                PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(210, 100, 1).create();
-
-                // Start a page
-                PdfDocument.Page page = document.startPage(pageInfo);
-
-
-                // Set content on the page
-                Canvas canvas = page.getCanvas();
-
-                // Variables for QR image and text
-                Paint paint = new Paint();
-                Paint text = new Paint();
-
-                // Configuration of the text
-                text.setTextSize(5);
-                text.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
-
-                // Load the data
-                canvas.drawBitmap(ScaledBitmap_QRCode, 5, 0, paint);
-
-                canvas.drawText("Movie:  " + selectedMovieTitle, 110, 33, text);
-                canvas.drawText("Date:  " + dateSelected, 110, 43, text);
-                canvas.drawText("Time:  " + timeSelected, 110, 53, text);
-                canvas.drawText("Tickets:  " + amountOfTickets, 110, 63, text);
-                canvas.drawText("Price:  " + finalPrice + " €", 110, 73, text);
-
-
-                // Finish the page
-                document.finishPage(page);
-
-
-                // Create a File for storage the PDF in the phone
-                String fileName = "Ticket_" + selectedMovieTitle.replace(" ", "-") + "_" + dateSelected + ".pdf";
-
-                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/" + fileName);
-
-
-                // Save the document in the phone
-                FileOutputStream outputStream = null;
-
-                try {
-
-                    file.createNewFile();
-
-                    outputStream = new FileOutputStream(file, false);
-
-                    document.writeTo(outputStream);
-
-                    outputStream.flush();
-                    outputStream.close();
-
-                    Toast.makeText(TicketsBought_Activity.this, "The ticket was successfully saved!", Toast.LENGTH_SHORT).show();
-
-                } catch (IOException e) {
-
-                    e.printStackTrace();
-
-                }
-
-
-                // Close the document
-                document.close();
-
-
-                // Open the PDF in a new screen
-                Intent intentPDFViewer = new Intent(TicketsBought_Activity.this, PDFViewer_Activity.class);
-
-                // Pass file object
-                intentPDFViewer.putExtra("PDF", file);
-
-                startActivity(intentPDFViewer);
 
             }
 
@@ -272,6 +278,8 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+                statusApp.getInstance().myFilms = false;
 
                 Intent backHome = new Intent(TicketsBought_Activity.this, HomeScreen_Activity.class);
 
@@ -334,6 +342,8 @@ public class TicketsBought_Activity extends AppCompatActivity {
                 else {
 
                     Toast.makeText(TicketsBought_Activity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(TicketsBought_Activity.this, "You have to give permission for download the ticket", Toast.LENGTH_SHORT).show();
 
                 }
 

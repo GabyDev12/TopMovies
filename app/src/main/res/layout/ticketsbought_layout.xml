@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/gifImageView_Enjoy"
             android:layout_centerHorizontal="true"
-            android:text="You can download your ticket now or in 'My Films' section"
+            android:text="You can download your ticket now or view it in 'My Films' section"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp"

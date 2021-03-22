@@ -198,6 +198,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             navigationView.setCheckedItem(R.id.nav_MyFilms);
 
+            statusApp.getInstance().myFilms = false;
+
         }
 
     }

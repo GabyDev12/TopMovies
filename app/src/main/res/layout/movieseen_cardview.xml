@@ -37,7 +37,7 @@
                 android:id="@+id/textView_msTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/imageButton_msDownload"
+                android:layout_toLeftOf="@+id/imageButton_msWatch"
                 android:layout_toRightOf="@+id/imageView_Ticket"
                 android:text="Movie Title"
                 android:textColor="@color/white"
@@ -63,7 +63,7 @@
                 android:layout_below="@+id/textView_msTitle"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:layout_toLeftOf="@+id/imageButton_msDownload"
+                android:layout_toLeftOf="@+id/imageButton_msWatch"
                 android:layout_toRightOf="@+id/textView_msDate"
                 android:text="00:00"
                 android:textColor="@color/white"
@@ -90,7 +90,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_alignBaseline="@+id/textView_msPrice"
-                android:layout_toLeftOf="@+id/imageButton_msDownload"
+                android:layout_toLeftOf="@+id/imageButton_msWatch"
                 android:layout_toRightOf="@+id/textView_msPrice"
                 android:text="5 Tickets"
                 android:textColor="@color/white"
@@ -98,24 +98,14 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/imageButton_msDownload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:background="@color/cyan_dark3"
-                android:padding="5dp"
-                android:src="@drawable/ic_download" />
-
-            <ImageButton
                 android:id="@+id/imageButton_msWatch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageButton_msDownload"
+                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/cyan_dark3"
+                android:background="@null"
                 android:padding="5dp"
                 android:src="@drawable/ic_watch" />
 

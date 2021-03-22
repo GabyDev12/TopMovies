@@ -2,10 +2,8 @@ package project.topmovies.visual.fragments;
 
 
 import project.topmovies.*;
-import project.topmovies.logic.Movie;
 import project.topmovies.logic.MovieSeen;
 import project.topmovies.logic.adapters.RecyclerView_MovieSeen_Adapter;
-import project.topmovies.logic.adapters.RecyclerView_Movie_Adapter;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -13,14 +11,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,8 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -98,6 +94,7 @@ public class MyFilms_Fragment extends Fragment {
 
                     moviesSeenRef.addValueEventListener(new ValueEventListener() {
 
+                        @RequiresApi(api = Build.VERSION_CODES.N)
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -127,7 +124,11 @@ public class MyFilms_Fragment extends Fragment {
 
                             }
 
-                            mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext(), getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_container));
+                            // Order by date to watch the tickets
+                            moviesSeenList.sort(Comparator.comparing(MovieSeen::getDateWatched));
+
+
+                            mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext());
 
 
                             // Configure RecyclerView
