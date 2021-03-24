@@ -1,13 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".visual.fragments.Profile_Fragment">
+    android:background="@drawable/bg_start">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Profile" />
+        android:padding="50dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/imageView_pUserImage"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textView_pUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView_pUserImage"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/carter_one"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35dp" />
+
+        <TextView
+            android:id="@+id/textView_pID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_pUserName"
+            android:layout_marginBottom="50dp"
+            android:text="ID:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11dp" />
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_FirebaseUserInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_pID"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView_ptName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Name:"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_pName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_ptName"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView_ptLastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_pName"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="Lastname:"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_pLastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_ptLastname"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="40dp"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView_ptEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativeLayout_FirebaseUserInfo"
+            android:layout_marginBottom="10dp"
+            android:text="Email:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_pEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_ptEmail"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView_ptWatchedMovies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_pEmail"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Total watched movies:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_pWatchedMovies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView_ptWatchedMovies"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/textView_ptWatchedMovies"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button_pSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_pWatchedMovies"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="SIGN OUT"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+</ScrollView>
