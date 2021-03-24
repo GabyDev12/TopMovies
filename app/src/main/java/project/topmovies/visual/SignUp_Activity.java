@@ -160,7 +160,6 @@ public class SignUp_Activity extends AppCompatActivity {
 
                                                     // Save login
                                                     statusApp.getInstance().loggedIn = true;
-                                                    statusApp.getInstance().actualUser = userCreated;
 
 
                                                     // Return to HomeScreen_Activity

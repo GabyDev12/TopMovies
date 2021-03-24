@@ -70,13 +70,6 @@ public class SignIn_Activity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Verify if user is signed in and then log it out
-        if (mAuth.getCurrentUser() != null) {
-
-            FirebaseAuth.getInstance().signOut();
-
-        }
-
 
         // Access to views
         editText_Email = findViewById(R.id.editText_SI_Email);
@@ -139,31 +132,6 @@ public class SignIn_Activity extends AppCompatActivity {
 
                                         progressBar_SignIn.setVisibility(View.VISIBLE);
 
-                                        FirebaseDatabase.getInstance().getReference("users")
-                                                .child(mAuth.getCurrentUser().getUid())
-                                                .get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-
-                                            @Override
-                                            public void onComplete(@NonNull Task<DataSnapshot> task) {      // Check if the user information was loaded correctly
-
-                                                if (task.isSuccessful()) {
-
-                                                    statusApp.getInstance().actualUser = new User(
-                                                            task.getResult().child("name").getValue(String.class),
-                                                            task.getResult().child("lastName").getValue(String.class),
-                                                            task.getResult().child("email").getValue(String.class));
-
-                                                }
-
-                                                else {
-
-                                                    Toast.makeText(SignIn_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
-
-                                                }
-
-                                            }
-
-                                        });
 
                                         // Save login
                                         statusApp.getInstance().loggedIn = true;
@@ -265,10 +233,6 @@ public class SignIn_Activity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
-                            // Save user data
-                            statusApp.getInstance().actualUser = new User(mAuth.getCurrentUser().getEmail());
-
-
                             // Check if the user information is already saved in Firebase
                             FirebaseDatabase.getInstance().getReference("users").addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -281,7 +245,7 @@ public class SignIn_Activity extends AppCompatActivity {
                                         // Save Uid of Google user and the email in Firebase Database
                                         FirebaseDatabase.getInstance().getReference("users")
                                                 .child(mAuth.getCurrentUser().getUid())
-                                                .setValue(statusApp.getInstance().actualUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                .setValue(new User(mAuth.getCurrentUser().getEmail())).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {      // Check if the Google user information was stored in the DB

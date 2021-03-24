@@ -7,8 +7,6 @@ public class statusApp {
     public boolean loggedIn = false;
     public boolean gAuth = false;
 
-    public User actualUser = null;
-
 
     // Check if it comes from MyFilms menu option
     public boolean myFilms = false;

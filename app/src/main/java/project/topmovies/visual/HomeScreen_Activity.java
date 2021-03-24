@@ -36,6 +36,10 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class HomeScreen_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -125,14 +129,33 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             nav_UserImage = nav_Header.findViewById(R.id.imageView_UserImage);
             nav_Username = nav_Header.findViewById(R.id.textView_UserName);
 
-            // Set name of user (Normal user)
-            nav_Username.setText(mAuth.getCurrentUser().getEmail());
-            // nav_Username.setText(statusApp.getInstance().actualUser.getName());      <-- Check this
-
             // Set email of user (Google user)
             if (statusApp.getInstance().gAuth == true) {
 
                 nav_Username.setText(mAuth.getCurrentUser().getEmail());
+
+            }
+
+            // Set name of user (Normal user)
+            else {
+
+                FirebaseDatabase.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        nav_Username.setText(snapshot.child("name").getValue(String.class) + " " + snapshot.child("lastName").getValue(String.class));
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                        Toast.makeText(HomeScreen_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
+
+                    }
+
+                });
 
             }
 
@@ -141,13 +164,6 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             nav_Menu.setGroupVisible(R.id.group_userOptions, true);
             nav_Menu.findItem(R.id.nav_Settings).setVisible(true);
-
-        }
-
-        // Remove the current user of Firebase
-        else {
-
-            FirebaseAuth.getInstance().signOut();
 
         }
 
@@ -318,7 +334,6 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                 mAuth.signOut();
 
                 statusApp.getInstance().loggedIn = false;
-                statusApp.getInstance().actualUser = null;
 
 
                 // Google sign out
