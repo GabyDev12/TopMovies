@@ -44,6 +44,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
     TextView textView_Synopsis;
 
+    Button button_WatchTrailer;
     Button button_WatchMovie;
 
 
@@ -78,6 +79,8 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
         button_Actors = findViewById(R.id.button_Actors);
         button_Director = findViewById(R.id.button_Director);
+
+        button_WatchTrailer = findViewById(R.id.button_WatchTrailer);
 
         button_WatchMovie = findViewById(R.id.button_WatchMovie);
 
@@ -200,6 +203,24 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
         // Load Synopsis
         textView_Synopsis.setText(currentMovie.getSynopsis());
+
+
+        // Action Watch movie
+        button_WatchTrailer.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intentTrailer = new Intent(MovieDetails_Activity.this, MovieTrailer_Activity.class);
+
+                // Pass movie object to the new activity
+                intentTrailer.putExtra("TRAILER", currentMovie.getTrailer());
+
+                startActivity(intentTrailer);
+
+            }
+
+        });
 
 
         // Action Watch movie

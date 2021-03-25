@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="project.topmovies">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -14,8 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopMovies">
         <activity
+            android:name=".visual.MovieTrailer_Activity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
             android:name=".visual.PDFViewer_Activity"
-            android:theme="@style/Theme.TopMovies_NoActionBar"></activity>
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.TicketsBought_Activity"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
