@@ -12,6 +12,10 @@ public class statusApp {
     public boolean myFilms = false;
 
 
+    // Check if it comes from Settings menu option
+    public boolean settings = false;
+
+
     // Singleton configuration
 
     // Private constructor so nobody can instantiate the class

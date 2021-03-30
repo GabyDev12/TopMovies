@@ -129,6 +129,10 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             nav_UserImage = nav_Header.findViewById(R.id.imageView_UserImage);
             nav_Username = nav_Header.findViewById(R.id.textView_UserName);
 
+            // Load the profile image of the user
+
+
+
             // Set email of user (Google user)
             if (statusApp.getInstance().gAuth == true) {
 
@@ -215,6 +219,23 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             navigationView.setCheckedItem(R.id.nav_MyFilms);
 
             statusApp.getInstance().myFilms = false;
+
+        }
+
+
+        // If it comes from the any settings option, load the Settings menu option
+        if (statusApp.getInstance().settings == true) {
+
+            getSupportActionBar().setTitle("Settings");
+
+            tabLayoutContainer.setVisibility(View.INVISIBLE);
+            contentPage.setVisibility(View.INVISIBLE);
+
+            frag_container.setVisibility(View.VISIBLE);
+
+            navigationView.setCheckedItem(R.id.nav_Settings);
+
+            statusApp.getInstance().settings = false;
 
         }
 
