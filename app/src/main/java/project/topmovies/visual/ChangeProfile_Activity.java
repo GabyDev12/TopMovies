@@ -197,6 +197,8 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                     successfulUpdate = false;
 
+                                    progressBar_ChangeProfile.setVisibility(View.GONE);
+
                                     Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the name in the DB. Sorry", Toast.LENGTH_LONG).show();
 
                                 }
@@ -226,6 +228,8 @@ public class ChangeProfile_Activity extends AppCompatActivity {
                                 else {
 
                                     successfulUpdate = false;
+
+                                    progressBar_ChangeProfile.setVisibility(View.GONE);
 
                                     Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the last name in the DB. Sorry", Toast.LENGTH_LONG).show();
 
@@ -266,6 +270,8 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                                         successfulUpdate = false;
 
+                                                        progressBar_ChangeProfile.setVisibility(View.GONE);
+
                                                         Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the email in the DB. Sorry", Toast.LENGTH_LONG).show();
 
                                                     }
@@ -279,6 +285,8 @@ public class ChangeProfile_Activity extends AppCompatActivity {
                                         else {
 
                                             successfulUpdate = false;
+
+                                            progressBar_ChangeProfile.setVisibility(View.GONE);
 
                                             Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the email. Sorry", Toast.LENGTH_LONG).show();
 
