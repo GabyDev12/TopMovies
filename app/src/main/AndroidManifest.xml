@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -16,6 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TopMovies">
+        <activity
+            android:name=".visual.ChangePassword_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
+        <activity
+            android:name=".visual.ChangeProfile_Activity"
+            android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.MovieTrailer_Activity"
             android:configChanges="keyboardHidden|orientation|screenSize" />

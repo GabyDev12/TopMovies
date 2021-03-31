@@ -288,7 +288,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                             progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                            Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the email. Sorry", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the email. Try again later. Sorry", Toast.LENGTH_LONG).show();
 
                                         }
 
