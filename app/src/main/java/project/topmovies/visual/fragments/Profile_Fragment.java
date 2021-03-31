@@ -3,11 +3,7 @@ package project.topmovies.visual.fragments;
 
 import project.topmovies.*;
 import project.topmovies.logic.statusApp;
-import project.topmovies.visual.HomeScreen_Activity;
 
-import static project.topmovies.logic.statusApp.*;
-
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
