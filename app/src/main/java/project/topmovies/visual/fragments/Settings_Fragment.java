@@ -11,6 +11,7 @@ import project.topmovies.visual.SignUp_Activity;
 import static project.topmovies.logic.statusApp.*;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -68,28 +69,57 @@ public class Settings_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intentChangeProfile = new Intent(getActivity(), ChangeProfile_Activity.class);
+                // If is a normal user
+                if (statusApp.getInstance().gAuth == false) {
 
-                startActivity(intentChangeProfile);
+                    Intent intentChangeProfile = new Intent(getActivity(), ChangeProfile_Activity.class);
+
+                    startActivity(intentChangeProfile);
+
+                }
+
+                // If is a Google user
+                else {
+
+                    Intent intentGoogleAccount = new Intent(Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com"));
+
+                    startActivity(intentGoogleAccount);
+
+                }
 
             }
 
         });
 
 
-        // Action change password
-        textView_cPassword.setOnClickListener(new View.OnClickListener() {
+        // If is a normal user
+        if (statusApp.getInstance().gAuth == false) {
 
-            @Override
-            public void onClick(View v) {
+            textView_cPassword.setVisibility(View.VISIBLE);
 
-                Intent intentChangePassword = new Intent(getActivity(), ChangePassword_Activity.class);
 
-                startActivity(intentChangePassword);
+            // Action change password
+            textView_cPassword.setOnClickListener(new View.OnClickListener() {
 
-            }
+                @Override
+                public void onClick(View v) {
 
-        });
+                    Intent intentChangePassword = new Intent(getActivity(), ChangePassword_Activity.class);
+
+                    startActivity(intentChangePassword);
+
+                }
+
+            });
+
+        }
+
+        // If is a Google user
+        else {
+
+            textView_cPassword.setVisibility(View.INVISIBLE);
+
+        }
 
 
         return thisView;
