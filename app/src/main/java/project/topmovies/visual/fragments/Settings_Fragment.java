@@ -3,6 +3,7 @@ package project.topmovies.visual.fragments;
 
 import project.topmovies.*;
 import project.topmovies.logic.statusApp;
+import project.topmovies.visual.ChangePassword_Activity;
 import project.topmovies.visual.ChangeProfile_Activity;
 import project.topmovies.visual.HomeScreen_Activity;
 import project.topmovies.visual.SignUp_Activity;
@@ -70,6 +71,21 @@ public class Settings_Fragment extends Fragment {
                 Intent intentChangeProfile = new Intent(getActivity(), ChangeProfile_Activity.class);
 
                 startActivity(intentChangeProfile);
+
+            }
+
+        });
+
+
+        // Action change password
+        textView_cPassword.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intentChangePassword = new Intent(getActivity(), ChangePassword_Activity.class);
+
+                startActivity(intentChangePassword);
 
             }
 
