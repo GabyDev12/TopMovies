@@ -12,19 +12,31 @@
 
         <ImageView
             android:id="@+id/imageView_cpUserImage"
-            android:layout_width="match_parent"
+            android:layout_width="130dp"
             android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:clickable="true"
             android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textView_cImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView_cpUserImage"
+            android:layout_marginTop="8dp"
+            android:text="Click the image to change it"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/editText_cName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView_cpUserImage"
+            android:layout_below="@id/textView_cImage"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="55dp"
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/cyan"
             android:ems="20"

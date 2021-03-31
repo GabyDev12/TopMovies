@@ -5,9 +5,14 @@ import project.topmovies.*;
 import project.topmovies.logic.statusApp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +22,20 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 
 public class ChangeProfile_Activity extends AppCompatActivity {
@@ -42,6 +54,8 @@ public class ChangeProfile_Activity extends AppCompatActivity {
     ProgressBar progressBar_ChangeProfile;
 
 
+    Uri imageSelected;
+
     private String currentUserName;
     private String currentUserLastName;
 
@@ -51,6 +65,8 @@ public class ChangeProfile_Activity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private DatabaseReference userRef;
+
+    private StorageReference storageRef;
 
 
     // ACTIVITY ACTIONS //
@@ -68,6 +84,10 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
         // Get reference of user data in Firebase
         userRef = FirebaseDatabase.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid());
+
+
+        // Get reference of user in Firebase Storage
+        storageRef = FirebaseStorage.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid());
 
 
         // Access to views
@@ -111,13 +131,29 @@ public class ChangeProfile_Activity extends AppCompatActivity {
         });
 
 
+        // Load the profile image of the user
+        if (mAuth.getCurrentUser().getPhotoUrl() != null) {
+
+            Picasso.with(ChangeProfile_Activity.this)
+                    .load(mAuth.getCurrentUser().getPhotoUrl())
+                    .fit()
+                    .centerCrop()
+                    .placeholder(R.drawable.img_loading)
+                    .into(imageView_cpUserImage);
+
+        }
+
+
         // Action change profile image
         imageView_cpUserImage.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(ChangeProfile_Activity.this, "Patata", Toast.LENGTH_LONG).show();
+                // Select a image from the gallery
+                Intent intentOpenGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(intentOpenGallery, 1000);
 
             }
 
@@ -300,6 +336,78 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                 }
 
+
+                // Upload the image to Firebase
+                StorageReference fileRef = storageRef.child("profile-Image.jpg");
+
+                fileRef.putFile(imageSelected)
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                                // The image was uploaded to Firebase successfully!
+
+
+                                // Link the image URL with the user profile image
+                                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setPhotoUri(uri)
+                                                .build();
+
+                                        mAuth.getCurrentUser().updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+
+                                                if (task.isSuccessful()) {
+
+                                                    // Profile image updated successfully!
+
+                                                }
+
+                                                else {
+
+                                                    successfulUpdate = false;
+
+                                                    progressBar_ChangeProfile.setVisibility(View.GONE);
+
+                                                    Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the profile image. Try again later. Sorry", Toast.LENGTH_LONG).show();
+
+                                                }
+
+                                            }
+
+                                        });
+
+                                    }
+
+                                });
+
+                            }
+
+                        })
+
+                        .addOnFailureListener(new OnFailureListener() {
+
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                successfulUpdate = false;
+
+                                progressBar_ChangeProfile.setVisibility(View.GONE);
+
+                                Toast.makeText(ChangeProfile_Activity.this, "There was a problem uploading the image. Try again later. Sorry", Toast.LENGTH_LONG).show();
+
+                            }
+
+                        });
+
+
                 // If there are no problems, return to settings in HomeScreen_Activity
                 if (successfulUpdate) {
 
@@ -317,12 +425,39 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onBackPressed() {
 
         super.onBackPressed();
 
         statusApp.getInstance().settings = true;
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1000) {
+
+            // If a image from the gallery was selected
+            if (resultCode == Activity.RESULT_OK) {
+
+                // Get the image an load it
+                imageSelected = data.getData();
+
+                Picasso.with(ChangeProfile_Activity.this)
+                        .load(imageSelected)
+                        .fit()
+                        .centerCrop()
+                        .into(imageView_cpUserImage);
+
+            }
+
+        }
 
     }
 

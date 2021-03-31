@@ -40,6 +40,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
 public class HomeScreen_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -129,14 +130,24 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             nav_UserImage = nav_Header.findViewById(R.id.imageView_UserImage);
             nav_Username = nav_Header.findViewById(R.id.textView_UserName);
 
-            // Load the profile image of the user
 
+            // Load the profile image of the user
+            if (mAuth.getCurrentUser().getPhotoUrl() != null) {
+
+                Picasso.with(HomeScreen_Activity.this)
+                        .load(mAuth.getCurrentUser().getPhotoUrl())
+                        .fit()
+                        .centerCrop()
+                        .placeholder(R.drawable.img_loading)
+                        .into(nav_UserImage);
+
+            }
 
 
             // Set email of user (Google user)
             if (statusApp.getInstance().gAuth == true) {
 
-                nav_Username.setText(mAuth.getCurrentUser().getEmail());
+                nav_Username.setText(mAuth.getCurrentUser().getDisplayName());
 
             }
 

@@ -12,8 +12,9 @@
 
         <ImageView
             android:id="@+id/imageView_pUserImage"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
             android:src="@mipmap/ic_launcher" />
 
         <TextView

@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
 public class Profile_Fragment extends Fragment {
@@ -39,6 +41,9 @@ public class Profile_Fragment extends Fragment {
     // VARIABLES //
 
     private View thisView;
+
+
+    private ImageView imageView_pUserImage;
 
 
     private TextView textView_pUserName;
@@ -81,6 +86,9 @@ public class Profile_Fragment extends Fragment {
 
 
         // Access to views
+        imageView_pUserImage = thisView.findViewById(R.id.imageView_pUserImage);
+
+
         textView_pUserName = thisView.findViewById(R.id.textView_pUserName);
         textView_pID = thisView.findViewById(R.id.textView_pID);
 
@@ -108,6 +116,19 @@ public class Profile_Fragment extends Fragment {
             // LOAD DATA
 
             textView_pID.setText("ID: " + mAuth.getCurrentUser().getUid());
+
+
+            // Load the profile image of the user
+            if (mAuth.getCurrentUser().getPhotoUrl() != null) {
+
+                Picasso.with(getActivity())
+                        .load(mAuth.getCurrentUser().getPhotoUrl())
+                        .fit()
+                        .centerCrop()
+                        .placeholder(R.drawable.img_loading)
+                        .into(imageView_pUserImage);
+
+            }
 
 
             // If is a normal user
