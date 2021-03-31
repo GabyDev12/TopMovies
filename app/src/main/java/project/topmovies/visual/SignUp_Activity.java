@@ -118,9 +118,17 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 }
 
+                else if (password.isEmpty()) {
+
+                    editText_Password.setError("Required");
+                    editText_Password.requestFocus();
+                    return;
+
+                }
+
                 else if (password.length() < 6) {
 
-                    editText_Password.setError("More than 6 characters");
+                    editText_Password.setError("6 characters minimum");
                     editText_Password.requestFocus();
                     return;
 

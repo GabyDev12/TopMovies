@@ -87,9 +87,17 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                 }
 
+                else if (newPassword.isEmpty()) {
+
+                    editText_cNewPassword.setError("Required");
+                    editText_cNewPassword.requestFocus();
+                    return;
+
+                }
+
                 else if (newPassword.length() < 6) {
 
-                    editText_cNewPassword.setError("More than 6 characters");
+                    editText_cNewPassword.setError("6 characters minimum");
                     editText_cNewPassword.requestFocus();
                     return;
 
