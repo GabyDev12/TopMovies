@@ -338,74 +338,81 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
 
                 // Upload the image to Firebase
-                StorageReference fileRef = storageRef.child("profile-Image.jpg");
+                if (imageSelected != null) {
 
-                fileRef.putFile(imageSelected)
-                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                                // The image was uploaded to Firebase successfully!
+                    StorageReference fileRef = storageRef.child("profile-Image.jpg");
 
 
-                                // Link the image URL with the user profile image
-                                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    fileRef.putFile(imageSelected)
+                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
 
-                                    @Override
-                                    public void onSuccess(Uri uri) {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                                .setPhotoUri(uri)
-                                                .build();
+                                    // The image was uploaded to Firebase successfully!
 
-                                        mAuth.getCurrentUser().updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
 
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
+                                    // Link the image URL with the user profile image
+                                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
 
-                                                if (task.isSuccessful()) {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
 
-                                                    // Profile image updated successfully!
+                                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                    .setPhotoUri(uri)
+                                                    .build();
+
+                                            mAuth.getCurrentUser().updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                    if (task.isSuccessful()) {
+
+                                                        // Profile image updated successfully!
+
+                                                        Toast.makeText(ChangeProfile_Activity.this, "The image could take a few time to get updated, don't worry", Toast.LENGTH_LONG).show();
+
+                                                    }
+
+                                                    else {
+
+                                                        successfulUpdate = false;
+
+                                                        progressBar_ChangeProfile.setVisibility(View.GONE);
+
+                                                        Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the profile image. Try again later. Sorry", Toast.LENGTH_LONG).show();
+
+                                                    }
 
                                                 }
 
-                                                else {
+                                            });
 
-                                                    successfulUpdate = false;
+                                        }
 
-                                                    progressBar_ChangeProfile.setVisibility(View.GONE);
+                                    });
 
-                                                    Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the profile image. Try again later. Sorry", Toast.LENGTH_LONG).show();
+                                }
 
-                                                }
+                            })
 
-                                            }
+                            .addOnFailureListener(new OnFailureListener() {
 
-                                        });
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
 
-                                    }
+                                    successfulUpdate = false;
 
-                                });
+                                    progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                            }
+                                    Toast.makeText(ChangeProfile_Activity.this, "There was a problem uploading the image. Try again later. Sorry", Toast.LENGTH_LONG).show();
 
-                        })
+                                }
 
-                        .addOnFailureListener(new OnFailureListener() {
+                            });
 
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-
-                                successfulUpdate = false;
-
-                                progressBar_ChangeProfile.setVisibility(View.GONE);
-
-                                Toast.makeText(ChangeProfile_Activity.this, "There was a problem uploading the image. Try again later. Sorry", Toast.LENGTH_LONG).show();
-
-                            }
-
-                        });
+                }
 
 
                 // If there are no problems, return to settings in HomeScreen_Activity
