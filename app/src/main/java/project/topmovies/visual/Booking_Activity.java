@@ -258,19 +258,19 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
                 if (textView_MovieDateSelected.getText().equals("xxxx-xx-xx")) {
 
-                    Toast.makeText(getApplicationContext(), R.string.selectDate, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.selectDate), Toast.LENGTH_SHORT).show();
 
                 }
 
                 else if (spinner_MovieTimes.getSelectedItemPosition() == 0) {
 
-                    Toast.makeText(getApplicationContext(), R.string.selectTime, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.selectTime), Toast.LENGTH_SHORT).show();
 
                 }
 
                 else if (seatsSelected.size() < 1) {
 
-                    Toast.makeText(getApplicationContext(), R.string.selectSeats, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.selectSeats), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -323,7 +323,7 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
         else if ((int) view.getTag() == STATUS_BOOKED) {
 
-            Toast.makeText(this, R.string.seatBooked1 + view.getId() + R.string.seatBooked2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,  getString(R.string.seatBooked1) + " " + view.getId() + " " + getString(R.string.seatBooked2), Toast.LENGTH_SHORT).show();
 
         }
 

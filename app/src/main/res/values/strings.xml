@@ -230,9 +230,9 @@
 
                 <string name="selectSeats">You have to select 1 seat at least</string>
 
-                <string name="seatBooked1">Seat </string>
+                <string name="seatBooked1">Seat</string>
 
-                <string name="seatBooked2"> is booked</string>
+                <string name="seatBooked2">is booked</string>
 
 
             <!-- ChangePassword_Activity -->
@@ -335,7 +335,7 @@
 
                 <string name="problemSigningUpTitle">WARNING!</string>
 
-                <string name="problemSigningUp">There was an error during the registration process. \nPlease, contact to the administration to know more. Thanks</string>
+                <string name="problemSigningUp">There was an error during the registration process. \nPlease, contact to the support service to know more. Thanks</string>
 
 
             <!-- TicketsBought_Activity -->
