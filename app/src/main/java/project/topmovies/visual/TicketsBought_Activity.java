@@ -138,13 +138,13 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
                     // Return to HomeScreen_Activity
 
-                    Toast.makeText(TicketsBought_Activity.this, "Watched movie data saved successfully in your profile!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TicketsBought_Activity.this, R.string.movieDataSavedSuccessfully, Toast.LENGTH_LONG).show();
 
                 }
 
                 else {
 
-                    Toast.makeText(TicketsBought_Activity.this, "There was a problem saving the watched movie data. Sorry", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TicketsBought_Activity.this, R.string.problemSavingMovieData, Toast.LENGTH_LONG).show();
 
                 }
 
@@ -163,7 +163,7 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
         } catch (WriterException e) {
 
-            Toast.makeText(TicketsBought_Activity.this, "There was a problem generating the QR code", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TicketsBought_Activity.this, R.string.problemQRCode, Toast.LENGTH_SHORT).show();
 
         }
 
@@ -207,11 +207,11 @@ public class TicketsBought_Activity extends AppCompatActivity {
                     // Load the data
                     canvas.drawBitmap(ScaledBitmap_QRCode, 5, 0, paint);
 
-                    canvas.drawText("Movie:  " + selectedMovieTitle, 110, 33, text);
-                    canvas.drawText("Date:  " + dateSelected, 110, 43, text);
-                    canvas.drawText("Time:  " + timeSelected, 110, 53, text);
-                    canvas.drawText("Tickets:  " + amountOfTickets, 110, 63, text);
-                    canvas.drawText("Price:  " + finalPrice + " €", 110, 73, text);
+                    canvas.drawText(getString(R.string.pdfMovie) + " " + selectedMovieTitle, 110, 33, text);
+                    canvas.drawText(getString(R.string.pdfDate) + " " + dateSelected, 110, 43, text);
+                    canvas.drawText(getString(R.string.pdfTime) + " " + timeSelected, 110, 53, text);
+                    canvas.drawText(getString(R.string.pdfTickets) + " " + amountOfTickets, 110, 63, text);
+                    canvas.drawText(getString(R.string.pdfPrice) + " " + finalPrice + " €", 110, 73, text);
 
 
                     // Finish the page
@@ -238,7 +238,7 @@ public class TicketsBought_Activity extends AppCompatActivity {
                         outputStream.flush();
                         outputStream.close();
 
-                        Toast.makeText(TicketsBought_Activity.this, "The ticket was successfully saved!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TicketsBought_Activity.this, R.string.ticketSavedSuccessfully, Toast.LENGTH_SHORT).show();
 
                     } catch (IOException e) {
 
@@ -335,15 +335,15 @@ public class TicketsBought_Activity extends AppCompatActivity {
 
                 if (writeStorage && readStorage) {
 
-                    Toast.makeText(TicketsBought_Activity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TicketsBought_Activity.this, R.string.permissionGranted, Toast.LENGTH_SHORT).show();
 
                 }
 
                 else {
 
-                    Toast.makeText(TicketsBought_Activity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TicketsBought_Activity.this, R.string.permissionDenied, Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(TicketsBought_Activity.this, "You have to give permission for download the ticket", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TicketsBought_Activity.this, R.string.needPermission, Toast.LENGTH_SHORT).show();
 
                 }
 

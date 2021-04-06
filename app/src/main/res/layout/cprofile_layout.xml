@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView_cpUserImage"
         android:layout_marginTop="8dp"
-        android:text="Click the image to change it"
+        android:text="@string/textView_cImage"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16dp" />
@@ -81,7 +81,7 @@
         android:layout_below="@id/editText_cEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:text="UPDATE"
+        android:text="@string/button_UpdateProfile"
         android:textSize="15dp" />
 
     <ProgressBar

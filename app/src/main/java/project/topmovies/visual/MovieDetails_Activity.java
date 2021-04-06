@@ -95,13 +95,13 @@ public class MovieDetails_Activity extends AppCompatActivity {
                 .into(imageView_Poster);
 
         // Load Runtime
-        textView_Runtime.setText(Html.fromHtml("<b>Runtime</b>: " + currentMovie.getRuntime()));
+        textView_Runtime.setText(Html.fromHtml("<b>" + getString(R.string.movieRuntime) + "</b>: " + currentMovie.getRuntime()));
 
         // Load Release date
-        textView_ReleaseDate.setText(Html.fromHtml("<b>Release Date</b> <br/> " + currentMovie.getReleaseDate()));
+        textView_ReleaseDate.setText(Html.fromHtml("<b>"  + getString(R.string.movieReleaseDate) + "</b> <br/> " + currentMovie.getReleaseDate()));
 
         // Load Categories
-        textView_Categories.setText(Html.fromHtml("<b>Categories</b> <br/>"));
+        textView_Categories.setText(Html.fromHtml("<b>" + getString(R.string.movieCategories) + "</b> <br/>"));
 
         for (String category : currentMovie.getCategories()) {
 
@@ -129,7 +129,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
                 AlertDialog.Builder builder_infoActors = new AlertDialog.Builder(MovieDetails_Activity.this);
 
-                builder_infoActors.setTitle("ACTORS");
+                builder_infoActors.setTitle(R.string.movieActors);
 
                 builder_infoActors.setMessage(actorsMessage);
 
@@ -174,7 +174,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
                 AlertDialog.Builder builder_infoDirectors = new AlertDialog.Builder(MovieDetails_Activity.this);
 
-                builder_infoDirectors.setTitle("DIRECTORS");
+                builder_infoDirectors.setTitle(R.string.movieDirectors);
 
                 builder_infoDirectors.setMessage(directorsMessage);
 
@@ -247,7 +247,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(MovieDetails_Activity.this, "You have to sign in to watch the movie!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MovieDetails_Activity.this, R.string.mustSignIn, Toast.LENGTH_LONG).show();
 
                     }
 
@@ -255,7 +255,7 @@ public class MovieDetails_Activity extends AppCompatActivity {
 
                 else {
 
-                    Toast.makeText(MovieDetails_Activity.this, "The movie will be available after the release date. See you there!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MovieDetails_Activity.this, R.string.movieComingSoon, Toast.LENGTH_LONG).show();
 
                 }
 

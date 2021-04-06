@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
         android:fontFamily="@font/carter_one"
-        android:text="Sign Up"
+        android:text="@string/textView_signUp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="50dp" />
@@ -109,7 +109,7 @@
         android:layout_marginBottom="30dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:text="SIGN UP"
+        android:text="@string/button_SU_SignUp"
         android:textSize="20dp" />
 
     <ProgressBar

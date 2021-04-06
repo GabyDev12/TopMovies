@@ -94,7 +94,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
                 if (email.isEmpty()) {
 
-                    editText_Email.setError("Required");
+                    editText_Email.setError(getString(R.string.etRequired));
                     editText_Email.requestFocus();
                     return;
 
@@ -102,7 +102,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
                 else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
-                    editText_Email.setError("Format invalid");
+                    editText_Email.setError(getString(R.string.etFormatInvalid));
                     editText_Email.requestFocus();
                     return;
 
@@ -110,7 +110,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
                 else if (password.isEmpty()) {
 
-                    editText_Password.setError("Required");
+                    editText_Password.setError(getString(R.string.etRequired));
                     editText_Password.requestFocus();
                     return;
 
@@ -137,7 +137,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
 
                                         // Return to HomeScreen_Activity
-                                        Toast.makeText(SignIn_Activity.this, "Signed in successfully!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignIn_Activity.this, R.string.signedInSuccessfully, Toast.LENGTH_LONG).show();
 
                                         finish();
 
@@ -145,7 +145,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
                                     else {
 
-                                        Toast.makeText(SignIn_Activity.this, "There was a problem\nPlease, check if the data introduced is correct", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignIn_Activity.this, R.string.problemSigningIn, Toast.LENGTH_LONG).show();
 
                                     }
 
@@ -209,7 +209,7 @@ public class SignIn_Activity extends AppCompatActivity {
             } catch (ApiException e) {
 
                 // Google Sign In failed, update UI appropriately
-                Toast.makeText(SignIn_Activity.this, "Google sign in failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(SignIn_Activity.this, R.string.problemGoogleSignIn, Toast.LENGTH_LONG).show();
 
             }
 
@@ -251,7 +251,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
                                                 if (!task.isSuccessful()) {
 
-                                                    Toast.makeText(SignIn_Activity.this, "There was a problem storing the user data. Sorry", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(SignIn_Activity.this, R.string.problemStoringUserData, Toast.LENGTH_LONG).show();
 
                                                 }
 
@@ -282,14 +282,14 @@ public class SignIn_Activity extends AppCompatActivity {
 
 
                             // Return to HomeScreen_Activity
-                            Toast.makeText(SignIn_Activity.this, "Signed in with Google successfully!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignIn_Activity.this, R.string.gSignedInSuccessfully, Toast.LENGTH_LONG).show();
 
                             finish();
 
                         } else {
 
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(SignIn_Activity.this, "There was a problem\nPlease, check if the data introduced is correct", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignIn_Activity.this, R.string.problemSigningIn, Toast.LENGTH_LONG).show();
 
                         }
 

@@ -37,7 +37,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/carter_one"
-            android:text="There is no watched movies"
+            android:text="@string/textView_noMyFilms"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="40dp"

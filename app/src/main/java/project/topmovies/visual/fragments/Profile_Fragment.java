@@ -145,7 +145,7 @@ public class Profile_Fragment extends Fragment {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
-                        Toast.makeText(getActivity(), "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), R.string.problemLoadingUserData, Toast.LENGTH_LONG).show();
 
                     }
 
@@ -158,7 +158,7 @@ public class Profile_Fragment extends Fragment {
             // If is a Google user
             else {
 
-                textView_pUserName.setText("Google User");
+                textView_pUserName.setText(R.string.googleUser);
 
                 relativeLayout_FirebaseUserInfo.setVisibility(View.GONE);
 
@@ -189,7 +189,7 @@ public class Profile_Fragment extends Fragment {
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
 
-                                Toast.makeText(getActivity(), "There was a problem counting the watched movies. Sorry", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), R.string.problemCountingWatchedMovies, Toast.LENGTH_LONG).show();
 
                             }
 
@@ -208,7 +208,7 @@ public class Profile_Fragment extends Fragment {
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
-                    Toast.makeText(getActivity(), "There was a problem loading the watched movies data. Sorry", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), R.string.problemLoadingMoviesWatched, Toast.LENGTH_LONG).show();
 
                 }
 
@@ -270,7 +270,7 @@ public class Profile_Fragment extends Fragment {
 
 
                 // Inform the user
-                Toast.makeText(getActivity(), "Signed out successfully!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), R.string.signedOut, Toast.LENGTH_LONG).show();
 
             }
 

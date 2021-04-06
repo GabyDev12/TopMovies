@@ -19,13 +19,13 @@
             android:id="@+id/tabItem_Billboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Billboard" />
+            android:text="@string/tabItem_Billboard" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabItem_ComingSoon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Comming Soon" />
+            android:text="@string/tabItem_ComingSoon" />
 
     </com.google.android.material.tabs.TabLayout>
 

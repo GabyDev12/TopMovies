@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/imageButton_msWatch"
                 android:layout_toRightOf="@+id/imageView_Ticket"
-                android:text="Movie Title"
+                android:text="@string/textView_msTitle"
                 android:textColor="@color/white"
                 android:textSize="23dp"
                 android:textStyle="bold" />
@@ -52,7 +52,7 @@
                 android:layout_below="@+id/textView_msTitle"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/imageView_Ticket"
-                android:text="xxxx-xx-xx"
+                android:text="@string/textView_msDate"
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 android:textStyle="bold" />
@@ -66,7 +66,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_toLeftOf="@+id/imageButton_msWatch"
                 android:layout_toRightOf="@+id/textView_msDate"
-                android:text="00:00"
+                android:text="@string/textView_msTime"
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 android:textStyle="bold" />
@@ -78,7 +78,7 @@
                 android:layout_below="@id/textView_msDate"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/imageView_Ticket"
-                android:text="14,80 €"
+                android:text="@string/textView_msPrice"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -93,7 +93,7 @@
                 android:layout_alignBaseline="@+id/textView_msPrice"
                 android:layout_toLeftOf="@+id/imageButton_msWatch"
                 android:layout_toRightOf="@+id/textView_msPrice"
-                android:text="5 Tickets"
+                android:text="@string/textView_msTickets"
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 android:textStyle="bold" />

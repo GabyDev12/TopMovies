@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/imageView_Poster"
-            android:text="Runtime: "
+            android:text="@string/textView_Runtime"
             android:textColor="@color/white"
             android:textSize="14dp" />
 
@@ -48,7 +48,7 @@
             android:layout_below="@id/textView_Runtime"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/imageView_Poster"
-            android:text="Release Date: "
+            android:text="@string/textView_ReleaseDate"
             android:textColor="@color/white"
             android:textSize="14dp" />
 
@@ -59,7 +59,7 @@
             android:layout_below="@id/textView_ReleaseDate"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/imageView_Poster"
-            android:text="Categories: "
+            android:text="@string/textView_Categories"
             android:textColor="@color/white"
             android:textSize="14dp" />
 
@@ -70,7 +70,7 @@
             android:layout_below="@id/textView_Categories"
             android:layout_gravity="center"
             android:layout_toRightOf="@id/imageView_Poster"
-            android:text="Actors" />
+            android:text="@string/button_Actors" />
 
         <Button
             android:id="@+id/button_Director"
@@ -80,7 +80,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/imageView_Poster"
-            android:text="Directors" />
+            android:text="@string/button_Director" />
 
         <TextView
             android:id="@+id/textView_tSynopsis"
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView_Poster"
             android:layout_marginTop="30dp"
-            android:text="Synopsis: "
+            android:text="@string/textView_tSynopsis"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -100,7 +100,7 @@
             android:layout_below="@id/textView_tSynopsis"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:text="Detailed synopsis "
+            android:text="@string/textView_Synopsis"
             android:textColor="@color/white"
             android:textSize="16dp" />
 
@@ -112,7 +112,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="Watch trailer" />
+            android:text="@string/button_WatchTrailer" />
 
         <Button
             android:id="@+id/button_WatchMovie"
@@ -123,7 +123,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="Watch movie" />
+            android:text="@string/button_WatchMovie" />
 
     </RelativeLayout>
 

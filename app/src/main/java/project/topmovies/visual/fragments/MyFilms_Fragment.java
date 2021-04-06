@@ -149,7 +149,7 @@ public class MyFilms_Fragment extends Fragment {
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
-                            Toast.makeText(getActivity(), "There was a problem loading the watched movies data. Sorry", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), R.string.problemLoadingMoviesWatched, Toast.LENGTH_LONG).show();
 
                             // Hide the progress bar
                             progressBar_MyFilms.setVisibility(View.GONE);

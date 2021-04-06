@@ -124,7 +124,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(ChangeProfile_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
+                Toast.makeText(ChangeProfile_Activity.this, R.string.problemLoadingUserData, Toast.LENGTH_LONG).show();
 
             }
 
@@ -176,7 +176,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                 if (name.isEmpty()) {
 
-                    editText_cName.setError("Required");
+                    editText_cName.setError(getString(R.string.etRequired));
                     editText_cName.requestFocus();
                     return;
 
@@ -184,7 +184,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                 else if (lastName.isEmpty()) {
 
-                    editText_cLastName.setError("Required");
+                    editText_cLastName.setError(getString(R.string.etRequired));
                     editText_cLastName.requestFocus();
                     return;
 
@@ -192,7 +192,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                 else if (email.isEmpty()) {
 
-                    editText_cEmail.setError("Required");
+                    editText_cEmail.setError(getString(R.string.etRequired));
                     editText_cEmail.requestFocus();
                     return;
 
@@ -200,7 +200,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                 else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
-                    editText_cEmail.setError("Format invalid");
+                    editText_cEmail.setError(getString(R.string.etFormatInvalid));
                     editText_cEmail.requestFocus();
                     return;
 
@@ -235,7 +235,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                     progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                    Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the name in the DB. Sorry", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(ChangeProfile_Activity.this, R.string.problemUpdatingName, Toast.LENGTH_LONG).show();
 
                                 }
 
@@ -267,7 +267,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                     progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                    Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the last name in the DB. Sorry", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(ChangeProfile_Activity.this, R.string.problemUpdatingLastName, Toast.LENGTH_LONG).show();
 
                                 }
 
@@ -308,7 +308,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                                         progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                                        Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the email in the DB. Sorry", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(ChangeProfile_Activity.this, R.string.problemUpdatingEmailDB, Toast.LENGTH_LONG).show();
 
                                                     }
 
@@ -324,7 +324,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                             progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                            Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the email. Try again later. Sorry", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(ChangeProfile_Activity.this, R.string.problemUpdatingEmail, Toast.LENGTH_LONG).show();
 
                                         }
 
@@ -371,7 +371,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                                         // Profile image updated successfully!
 
-                                                        Toast.makeText(ChangeProfile_Activity.this, "The image could take a few time to get updated, don't worry", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(ChangeProfile_Activity.this, R.string.imageCouldTakeTime, Toast.LENGTH_LONG).show();
 
                                                     }
 
@@ -381,7 +381,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                                         progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                                        Toast.makeText(ChangeProfile_Activity.this, "There was a problem updating the profile image. Try again later. Sorry", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(ChangeProfile_Activity.this, R.string.problemUpdatingProfileImage, Toast.LENGTH_LONG).show();
 
                                                     }
 
@@ -406,7 +406,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
 
                                     progressBar_ChangeProfile.setVisibility(View.GONE);
 
-                                    Toast.makeText(ChangeProfile_Activity.this, "There was a problem uploading the image. Try again later. Sorry", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(ChangeProfile_Activity.this, R.string.problemUploadingProfileImage, Toast.LENGTH_LONG).show();
 
                                 }
 
@@ -418,7 +418,7 @@ public class ChangeProfile_Activity extends AppCompatActivity {
                 // If there are no problems, return to settings in HomeScreen_Activity
                 if (successfulUpdate) {
 
-                    Toast.makeText(ChangeProfile_Activity.this, "Updated successfully!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ChangeProfile_Activity.this, R.string.profileUpdatedSuccessfully, Toast.LENGTH_LONG).show();
 
                     statusApp.getInstance().settings = true;
 

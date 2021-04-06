@@ -4,30 +4,371 @@
     <string name="app_name">TopMovies</string>
 
 
-    <!-- start_layout -->
-
-    <string name="welcomeMsg">WELCOME TO</string>
+    <!-- LAYOUTS -->
 
 
-    <!-- home_layout -->
+        <!-- booking_layout -->
 
-    <string name="a"></string>
+            <string name="textView_MovieDate">Date</string>
+
+            <string name="button_DateSelection">Select a Date</string>
+
+            <string name="textView_MovieDateSelected">xxxx-xx-xx</string>
+
+            <string name="textView_MovieTimes">Times</string>
+
+            <string name="textView_MovieSeats">Seats</string>
+
+            <string name="textView_CinemaScreen">Screen</string>
+
+            <string name="textView_PricePerTicket">Price Ticket --> 2,50 €</string>
+
+            <string name="button_Checkout">Checkout</string>
 
 
-    <!-- TOAST -->
+        <!-- checkout_layout -->
 
-    <string name="b"></string>
+            <string name="textView_MovieTitle">Movie Title</string>
+
+            <string name="textView_tDate">Date:</string>
+
+            <string name="textView_Date">xxxx - xx - xx</string>
+
+            <string name="textView_tTime">Time:</string>
+
+            <string name="textView_Time">00:00</string>
+
+            <string name="textView_tTickets">Tickets:</string>
+
+            <string name="textView_Tickets">8</string>
+
+            <string name="textView_tSeats">Seats:</string>
+
+            <string name="textView_Seats">14, 21, 2</string>
+
+            <string name="textView_tFinalPrice">Total Price:</string>
+
+            <string name="textView_FinalPrice">14,80 €</string>
+
+            <string name="button_Buy">Buy</string>
 
 
-    <!-- ALERT DIALOG -->
+        <!-- content_main -->
 
-    <string name="c"></string>
+            <string name="tabItem_Billboard">Billboard</string>
+
+            <string name="tabItem_ComingSoon">Coming Soon</string>
 
 
-    <!-- ActionBarDrawerToggle -->
+        <!-- cpassword_layout -->
 
-    <string name="openNavView">openNavView</string>
-    <string name="closeNavView">closeNavView</string>
+            <string name="textView_ChangePassword">Change Password</string>
+
+            <string name="button_ChangePassword">UPDATE</string>
+
+
+        <!-- cprofile_layout -->
+
+            <string name="textView_cImage">Click the image to change it</string>
+
+            <string name="button_UpdateProfile">UPDATE</string>
+
+
+        <!-- drawer_header_nologged -->
+
+            <string name="button_SignUp">SIGN UP</string>
+
+            <string name="button_SignIn">SIGN IN</string>
+
+
+        <!-- movie_layout -->
+
+            <string name="textView_Runtime">Runtime: </string>
+
+            <string name="textView_ReleaseDate">Release Date: </string>
+
+            <string name="textView_Categories">Categories: </string>
+
+            <string name="button_Actors">Actors</string>
+
+            <string name="button_Director">Directors</string>
+
+            <string name="textView_tSynopsis">Synopsis: </string>
+
+            <string name="textView_Synopsis">Detailed synopsis </string>
+
+            <string name="button_WatchTrailer">Watch trailer</string>
+
+            <string name="button_WatchMovie">Watch movie</string>
+
+
+        <!-- movieseen_cardview -->
+
+            <string name="textView_msTitle">Movie Title</string>
+
+            <string name="textView_msDate">xxxx-xx-xx</string>
+
+            <string name="textView_msTime">00:00</string>
+
+            <string name="textView_msPrice">14,80 €</string>
+
+            <string name="textView_msTickets">5 Tickets</string>
+
+
+        <!-- myfilms_fraglayout -->
+
+            <string name="textView_noMyFilms">There is no watched movies</string>
+
+
+        <!-- pdfviewer_layout -->
+
+            <string name="textView_TicketViewer">Ticket Viewer</string>
+
+
+        <!-- profile_fraglayout -->
+
+            <string name="textView_pID">ID:</string>
+
+            <string name="textView_ptName">Name:</string>
+
+            <string name="textView_ptLastname">Lastname:</string>
+
+            <string name="textView_ptEmail">Email:</string>
+
+            <string name="textView_ptWatchedMovies">Total watched movies:</string>
+
+            <string name="button_pSignOut">SIGN OUT</string>
+
+
+        <!-- settings_fraglayout -->
+
+            <string name="textView_tAccountSettings">ACCOUNT SETTINGS</string>
+
+            <string name="textView_cProfile">Edit profile</string>
+
+            <string name="textView_cPassword">Change password</string>
+
+            <string name="textView_tChangeLanguage">LANGUAGE</string>
+
+
+        <!-- signin_layout -->
+
+            <string name="textView_signIn">Sign In</string>
+
+            <string name="button_SI_SignIn">SIGN IN</string>
+
+            <string name="button_SI_gSignIn">SIGN WITH GOOGLE</string>
+
+
+        <!-- signup_layout -->
+
+            <string name="textView_signUp">Sign Up</string>
+
+            <string name="button_SU_SignUp">SIGN UP</string>
+
+
+        <!-- ticketsbought_layout -->
+
+            <string name="textView_tMovieTitle">You can download your ticket now or view it in My Films section</string>
+
+            <string name="button_DownloadTicket">Download Ticket</string>
+
+            <string name="button_Finish">Finish</string>
+
+
+
+    <!-- ACTIVITIES -->
+
+
+        <!-- TOAST -->
+
+
+            <!-- RecyclerView_MovieSeen_Adapter -->
+
+                <string name="problemQRCode">There was a problem generating the QR code</string>
+
+                <string name="pdfMovie">Movie:</string>
+
+                <string name="pdfDate">Date:</string>
+
+                <string name="pdfTime">Time:</string>
+
+                <string name="pdfTickets">Tickets:</string>
+
+                <string name="pdfPrice">Price:</string>
+
+
+            <!-- About_Fragment & Billboard_Fragment -->
+
+                <string name="problemLoadingMovies">There was a problem loading the movies data. Sorry</string>
+
+
+            <!-- MyFilms_Fragment -->
+
+                <string name="problemLoadingMoviesWatched">There was a problem loading the watched movies data. Sorry</string>
+
+
+            <!-- Profile_Fragment -->
+
+                <string name="problemLoadingUserData">There was a problem loading the user data. Sorry</string>
+
+                <string name="googleUser">Google User</string>
+
+                <string name="problemCountingWatchedMovies">There was a problem counting the watched movies. Sorry</string>
+
+                <string name="signedOut">Signed out successfully!</string>
+
+
+
+            <!-- Booking_Activity -->
+
+                <string name="titleBooking">Booking</string>
+
+                <string name="selectDate">You have to select a date</string>
+
+                <string name="selectTime">You have to select a time</string>
+
+                <string name="selectSeats">You have to select 1 seat at least</string>
+
+                <string name="seatBooked1">Seat </string>
+
+                <string name="seatBooked2"> is booked</string>
+
+
+            <!-- ChangePassword_Activity -->
+
+                <string name="problemMismatchPassword">The passwords does not match</string>
+
+                <string name="changedPassword">The password was changed successfully!</string>
+
+                <string name="problemUpdatingPassword">There was a problem updating the password. Sorry</string>
+
+                <string name="wrongPassword">Authentication failed, wrong password?</string>
+
+
+            <!-- ChangeProfile_Activity -->
+
+                <string name="problemUpdatingName">There was a problem updating the name in the DB. Sorry</string>
+
+                <string name="problemUpdatingLastName">There was a problem updating the last name in the DB. Sorry</string>
+
+                <string name="problemUpdatingEmailDB">There was a problem updating the email in the DB. Sorry</string>
+
+                <string name="problemUpdatingEmail">There was a problem updating the email. Try again later. Sorry</string>
+
+                <string name="imageCouldTakeTime">The image could take a few time to get updated, not worry</string>
+
+                <string name="problemUpdatingProfileImage">There was a problem updating the profile image. Try again later. Sorry</string>
+
+                <string name="problemUploadingProfileImage">There was a problem uploading the image. Try again later. Sorry</string>
+
+                <string name="profileUpdatedSuccessfully">Updated successfully!</string>
+
+
+            <!-- Checkout_Activity -->
+
+                <string name="titleCheckout">Checkout</string>
+
+
+            <!-- HomeScreen_Activity -->
+
+                <string name="titleHome">Home</string>
+
+                <string name="titleMyFilms">My Films</string>
+
+                <string name="titleProfile">Profile</string>
+
+                <string name="titleSettings">Settings</string>
+
+                <string name="titleAbout">About</string>
+
+
+            <!-- MovieDetails_Activity -->
+
+                <string name="movieRuntime">Runtime</string>
+
+                <string name="movieReleaseDate">Release Date</string>
+
+                <string name="movieCategories">Categories</string>
+
+                <string name="movieActors">ACTORS</string>
+
+                <string name="movieDirectors">DIRECTORS</string>
+
+                <string name="mustSignIn">You have to sign in to watch the movie!</string>
+
+                <string name="movieComingSoon">The movie will be available after the release date. See you there!</string>
+
+
+            <!-- SignIn_Activity -->
+
+                <string name="signedInSuccessfully">Signed in successfully!</string>
+
+                <string name="problemSigningIn">There was a problem\nPlease, check if the data introduced is correct</string>
+
+                <string name="problemGoogleSignIn">Google sign in failed</string>
+
+                <string name="problemStoringUserData">There was a problem storing the user data. Sorry</string>
+
+                <string name="gSignedInSuccessfully">Signed in with Google successfully!</string>
+
+
+            <!-- SignUp_Activity -->
+
+                <string name="signedUpSuccessfully">Signed up successfully!</string>
+
+                <string name="problemSigningUpTitle">WARNING!</string>
+
+                <string name="problemSigningUp">There was an error during the registration process. \nPlease, contact to the administration to know more. Thanks</string>
+
+
+            <!-- TicketsBought_Activity -->
+
+                <string name="movieDataSavedSuccessfully">Watched movie data saved successfully in your profile!</string>
+
+                <string name="problemSavingMovieData">There was a problem saving the watched movie data. Sorry</string>
+
+                <string name="ticketSavedSuccessfully">The ticket was successfully saved!</string>
+
+                <string name="permissionGranted">Permission Granted</string>
+
+                <string name="permissionDenied">Permission Denied</string>
+
+                <string name="needPermission">You have to give permission for download the ticket</string>
+
+
+
+        <!-- MENU -->
+
+            <string name="nav_Home">Home</string>
+
+            <string name="nav_MyFilms">My Films</string>
+
+            <string name="nav_Profile">Profile</string>
+
+            <string name="nav_SignOut">Sign Out</string>
+
+            <string name="nav_Settings">Settings</string>
+
+            <string name="nav_About">About</string>
+
+
+
+        <!-- EditText Errors -->
+
+            <string name="etRequired">Required</string>
+
+            <string name="etFormatInvalid">Format invalid</string>
+
+            <string name="etMinPassword">6 characters minimum</string>
+
+
+
+        <!-- ActionBarDrawerToggle -->
+
+            <string name="openNavView">openNavView</string>
+
+            <string name="closeNavView">closeNavView</string>
 
 
 </resources>

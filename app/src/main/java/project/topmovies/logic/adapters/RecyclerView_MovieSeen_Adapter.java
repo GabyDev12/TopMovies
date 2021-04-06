@@ -95,7 +95,7 @@ public class RecyclerView_MovieSeen_Adapter extends RecyclerView.Adapter<Recycle
 
         } catch (WriterException e) {
 
-            Toast.makeText(context, "There was a problem generating the QR code", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.problemQRCode, Toast.LENGTH_SHORT).show();
 
         }
 
@@ -135,11 +135,11 @@ public class RecyclerView_MovieSeen_Adapter extends RecyclerView.Adapter<Recycle
                 // Load the data
                 canvas.drawBitmap(ScaledBitmap_QRCode, 5, 0, paint);
 
-                canvas.drawText("Movie:  " + movieSeenSelected.getMovieTitle(), 110, 33, text);
-                canvas.drawText("Date:  " + movieSeenSelected.getDateWatched(), 110, 43, text);
-                canvas.drawText("Time:  " + movieSeenSelected.getTimeWatched(), 110, 53, text);
-                canvas.drawText("Tickets:  " + movieSeenSelected.getTicketsNumber(), 110, 63, text);
-                canvas.drawText("Price:  " + movieSeenSelected.getFinalPrice(), 110, 73, text);
+                canvas.drawText(context.getString(R.string.pdfMovie) + " " + movieSeenSelected.getMovieTitle(), 110, 33, text);
+                canvas.drawText(context.getString(R.string.pdfDate) + " " + movieSeenSelected.getDateWatched(), 110, 43, text);
+                canvas.drawText(context.getString(R.string.pdfTime) + " " + movieSeenSelected.getTimeWatched(), 110, 53, text);
+                canvas.drawText(context.getString(R.string.pdfTickets) + " " + movieSeenSelected.getTicketsNumber(), 110, 63, text);
+                canvas.drawText(context.getString(R.string.pdfPrice) + " " + movieSeenSelected.getFinalPrice(), 110, 73, text);
 
 
                 // Finish the page

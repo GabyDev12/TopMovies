@@ -38,12 +38,12 @@
             tools:visibility="invisible" />
 
         <TextView
-            android:id="@+id/textView_MovieTitle"
+            android:id="@+id/textView_tMovieTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/gifImageView_Enjoy"
             android:layout_centerHorizontal="true"
-            android:text="You can download your ticket now or view it in 'My Films' section"
+            android:text="@string/textView_tMovieTitle"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -53,11 +53,11 @@
             android:id="@+id/button_DownloadTicket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView_MovieTitle"
+            android:layout_below="@+id/textView_tMovieTitle"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Download Ticket"
+            android:text="@string/button_DownloadTicket"
             android:textSize="14dp"
             tools:visibility="invisible" />
 
@@ -70,7 +70,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
-            android:text="Finish"
+            android:text="@string/button_Finish"
             android:textSize="18dp"
             tools:visibility="invisible" />
 

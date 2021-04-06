@@ -188,7 +188,7 @@ public class Billboard_Fragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(getActivity(), "There was a problem loading the movies data. Sorry", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), R.string.problemLoadingMovies, Toast.LENGTH_LONG).show();
 
                 // Hide the progress bar
                 progressBar_Billboard.setVisibility(View.GONE);

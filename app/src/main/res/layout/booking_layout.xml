@@ -14,7 +14,7 @@
             android:id="@+id/textView_MovieDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date"
+            android:text="@string/textView_MovieDate"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -26,7 +26,7 @@
             android:layout_below="@+id/textView_MovieDate"
             android:layout_gravity="center"
             android:layout_margin="15dp"
-            android:text="Select a Date"
+            android:text="@string/button_DateSelection"
             android:textSize="10dp" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_alignBaseline="@+id/button_DateSelection"
             android:layout_margin="15dp"
             android:layout_toRightOf="@id/button_DateSelection"
-            android:text="xxxx-xx-xx"
+            android:text="@string/textView_MovieDateSelected"
             android:textColor="@color/white"
             android:textSize="16dp" />
 
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_DateSelection"
             android:layout_marginTop="15dp"
-            android:text="Times"
+            android:text="@string/textView_MovieTimes"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -68,7 +68,7 @@
             android:layout_below="@+id/spinner_MovieTimes"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Seats"
+            android:text="@string/textView_MovieSeats"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -88,7 +88,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
                 android:background="#D80000"
-                android:text="Screen"
+                android:text="@string/textView_CinemaScreen"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
@@ -120,7 +120,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="15dp"
-                android:text="Price Ticket --> 2,50 €"
+                android:text="@string/textView_PricePerTicket"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
@@ -136,7 +136,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="Checkout" />
+            android:text="@string/button_Checkout" />
 
     </RelativeLayout>
 

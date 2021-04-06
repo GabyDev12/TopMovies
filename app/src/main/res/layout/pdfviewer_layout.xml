@@ -6,11 +6,11 @@
     android:background="@drawable/bc_start">
 
     <TextView
-        android:id="@+id/textView_noMyFilms"
+        android:id="@+id/textView_TicketViewer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/carter_one"
-        android:text="Ticket Viewer"
+        android:text="@string/textView_TicketViewer"
         android:textAlignment="center"
         android:layout_marginTop="110dp"
         android:textColor="@color/white"

@@ -18,7 +18,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
             android:fontFamily="@font/carter_one"
-            android:text="ACCOUNT SETTINGS"
+            android:text="@string/textView_tAccountSettings"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="35dp" />
@@ -34,7 +34,7 @@
             android:clickable="true"
             android:fontFamily="@font/architects_daughter"
             android:padding="12dp"
-            android:text="Edit profile"
+            android:text="@string/textView_cProfile"
             android:textColor="@color/white"
             android:textSize="22dp"
             android:textStyle="bold" />
@@ -50,10 +50,49 @@
             android:clickable="true"
             android:fontFamily="@font/architects_daughter"
             android:padding="12dp"
-            android:text="Change password"
+            android:text="@string/textView_cPassword"
             android:textColor="@color/white"
             android:textSize="22dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_tChangeLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/carter_one"
+            android:text="@string/textView_tChangeLanguage"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35dp" />
+
+        <ImageView
+            android:id="@+id/imageView_LangES"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="45dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:maxWidth="80dp"
+            android:maxHeight="100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_spain" />
+
+        <ImageView
+            android:id="@+id/imageView_LangEN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:maxWidth="80dp"
+            android:maxHeight="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_usa" />
 
     </LinearLayout>
 

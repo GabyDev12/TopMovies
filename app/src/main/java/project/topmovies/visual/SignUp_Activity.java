@@ -88,7 +88,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 if (name.isEmpty()) {
 
-                    editText_Name.setError("Required");
+                    editText_Name.setError(getString(R.string.etRequired));
                     editText_Name.requestFocus();
                     return;
 
@@ -96,7 +96,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 else if (lastName.isEmpty()) {
 
-                    editText_LastName.setError("Required");
+                    editText_LastName.setError(getString(R.string.etRequired));
                     editText_LastName.requestFocus();
                     return;
 
@@ -104,7 +104,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 else if (email.isEmpty()) {
 
-                    editText_Email.setError("Required");
+                    editText_Email.setError(getString(R.string.etRequired));
                     editText_Email.requestFocus();
                     return;
 
@@ -112,7 +112,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
-                    editText_Email.setError("Format invalid");
+                    editText_Email.setError(getString(R.string.etFormatInvalid));
                     editText_Email.requestFocus();
                     return;
 
@@ -120,7 +120,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 else if (password.isEmpty()) {
 
-                    editText_Password.setError("Required");
+                    editText_Password.setError(getString(R.string.etRequired));
                     editText_Password.requestFocus();
                     return;
 
@@ -128,7 +128,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 else if (password.length() < 6) {
 
-                    editText_Password.setError("6 characters minimum");
+                    editText_Password.setError(getString(R.string.etMinPassword));
                     editText_Password.requestFocus();
                     return;
 
@@ -136,7 +136,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                 else if (!password.equals(confirmPassword)) {
 
-                    Toast.makeText(SignUp_Activity.this, "The passwords doesn't match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUp_Activity.this, R.string.problemMismatchPassword, Toast.LENGTH_LONG).show();
 
                 }
 
@@ -172,7 +172,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                                                     // Return to HomeScreen_Activity
 
-                                                    Toast.makeText(SignUp_Activity.this, "Signed up successfully!", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(SignUp_Activity.this, R.string.signedUpSuccessfully, Toast.LENGTH_LONG).show();
 
                                                     finish();
 
@@ -180,7 +180,7 @@ public class SignUp_Activity extends AppCompatActivity {
 
                                                 else {
 
-                                                    Toast.makeText(SignUp_Activity.this, "There was a problem storing the user data. Sorry", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(SignUp_Activity.this, R.string.problemStoringUserData, Toast.LENGTH_LONG).show();
 
                                                 }
 
@@ -196,9 +196,9 @@ public class SignUp_Activity extends AppCompatActivity {
 
                                         AlertDialog.Builder builder_ProblemSigningUp = new AlertDialog.Builder(SignUp_Activity.this);
 
-                                        builder_ProblemSigningUp.setTitle("WARNING!");
+                                        builder_ProblemSigningUp.setTitle(R.string.problemSigningUpTitle);
 
-                                        builder_ProblemSigningUp.setMessage("There was an error during the registration process.\nPlease, contact to the administration to know more. Thanks");
+                                        builder_ProblemSigningUp.setMessage(R.string.problemSigningUp);
 
                                         builder_ProblemSigningUp.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 

@@ -81,7 +81,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                 if (currentPassword.isEmpty()) {
 
-                    editText_cCurrentPassword.setError("Required");
+                    editText_cCurrentPassword.setError(getString(R.string.etRequired));
                     editText_cCurrentPassword.requestFocus();
                     return;
 
@@ -89,7 +89,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                 else if (newPassword.isEmpty()) {
 
-                    editText_cNewPassword.setError("Required");
+                    editText_cNewPassword.setError(getString(R.string.etRequired));
                     editText_cNewPassword.requestFocus();
                     return;
 
@@ -97,7 +97,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                 else if (newPassword.length() < 6) {
 
-                    editText_cNewPassword.setError("6 characters minimum");
+                    editText_cNewPassword.setError(getString(R.string.etMinPassword));
                     editText_cNewPassword.requestFocus();
                     return;
 
@@ -105,7 +105,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                 else if (!newPassword.equals(confirmNewPassword)) {
 
-                    Toast.makeText(ChangePassword_Activity.this, "The passwords doesn't match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ChangePassword_Activity.this, R.string.problemMismatchPassword, Toast.LENGTH_LONG).show();
 
                 }
 
@@ -139,7 +139,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                                                         if (task.isSuccessful()) {
 
-                                                            Toast.makeText(ChangePassword_Activity.this, "Password was changed successfully!", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(ChangePassword_Activity.this, R.string.changedPassword, Toast.LENGTH_LONG).show();
 
 
                                                             // Firebase sign out
@@ -156,7 +156,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                                                             progressBar_ChangePassword.setVisibility(View.GONE);
 
-                                                            Toast.makeText(ChangePassword_Activity.this, "There was a problem updating the password. Sorry", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(ChangePassword_Activity.this, R.string.problemUpdatingPassword, Toast.LENGTH_LONG).show();
 
                                                         }
 
@@ -169,7 +169,7 @@ public class ChangePassword_Activity extends AppCompatActivity {
 
                                         progressBar_ChangePassword.setVisibility(View.GONE);
 
-                                        Toast.makeText(ChangePassword_Activity.this, "Authentication failed, wrong password?", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ChangePassword_Activity.this, R.string.wrongPassword, Toast.LENGTH_LONG).show();
 
                                     }
 

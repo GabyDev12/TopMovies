@@ -8,7 +8,7 @@
         android:id="@+id/nav_Home"
         android:checkable="true"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/nav_Home" />
 
     <group
         android:id="@+id/group_userOptions"
@@ -19,18 +19,18 @@
             android:id="@+id/nav_MyFilms"
             android:checkable="true"
             android:icon="@drawable/ic_myfilms"
-            android:title="My Films" />
+            android:title="@string/nav_MyFilms" />
 
         <item
             android:id="@+id/nav_Profile"
             android:checkable="true"
             android:icon="@drawable/ic_profile"
-            android:title="Profile" />
+            android:title="@string/nav_Profile" />
 
         <item
             android:id="@+id/nav_SignOut"
             android:icon="@drawable/ic_signout"
-            android:title="Sign Out" />
+            android:title="@string/nav_SignOut" />
 
     </group>
 
@@ -42,14 +42,14 @@
             android:id="@+id/nav_Settings"
             android:checkable="true"
             android:icon="@drawable/ic_settings"
-            android:title="Settings"
-            android:visible="false" />
+            android:title="@string/nav_Settings"
+            android:visible="true" />
 
         <item
             android:id="@+id/nav_About"
             android:checkable="true"
             android:icon="@drawable/ic_about"
-            android:title="About" />
+            android:title="@string/nav_About" />
 
     </group>
 

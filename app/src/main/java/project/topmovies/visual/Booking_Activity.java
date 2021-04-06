@@ -86,7 +86,7 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
         // Configuration for Toolbar
         ActionBar toolBar = getSupportActionBar();
 
-        toolBar.setTitle("Booking");
+        toolBar.setTitle(R.string.titleBooking);
 
 
         // Access to views
@@ -258,19 +258,19 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
                 if (textView_MovieDateSelected.getText().equals("xxxx-xx-xx")) {
 
-                    Toast.makeText(getApplicationContext(), "You have to select a date", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.selectDate, Toast.LENGTH_SHORT).show();
 
                 }
 
                 else if (spinner_MovieTimes.getSelectedItemPosition() == 0) {
 
-                    Toast.makeText(getApplicationContext(), "You have to select a time", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.selectTime, Toast.LENGTH_SHORT).show();
 
                 }
 
                 else if (seatsSelected.size() < 1) {
 
-                    Toast.makeText(getApplicationContext(), "You have to select 1 seat at least", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.selectSeats, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -323,7 +323,7 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
         else if ((int) view.getTag() == STATUS_BOOKED) {
 
-            Toast.makeText(this, "Seat " + view.getId() + " is booked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.seatBooked1 + view.getId() + R.string.seatBooked2, Toast.LENGTH_SHORT).show();
 
         }
 

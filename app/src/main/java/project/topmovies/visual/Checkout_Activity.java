@@ -63,7 +63,7 @@ public class Checkout_Activity extends AppCompatActivity {
         // Configuration for Toolbar
         ActionBar toolBar = getSupportActionBar();
 
-        toolBar.setTitle("Checkout");
+        toolBar.setTitle(R.string.titleCheckout);
 
 
         // Access to views

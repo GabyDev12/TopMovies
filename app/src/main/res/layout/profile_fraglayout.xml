@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_pUserName"
             android:layout_marginBottom="50dp"
-            android:text="ID:"
+            android:text="@string/textView_pID"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="11dp" />
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:text="Name:"
+                android:text="@string/textView_ptName"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -75,7 +75,7 @@
                 android:layout_below="@id/textView_pName"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                android:text="Lastname:"
+                android:text="@string/textView_ptLastname"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/relativeLayout_FirebaseUserInfo"
             android:layout_marginBottom="10dp"
-            android:text="Email:"
+            android:text="@string/textView_ptEmail"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -120,7 +120,7 @@
             android:layout_below="@id/textView_pEmail"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
-            android:text="Total watched movies:"
+            android:text="@string/textView_ptWatchedMovies"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -143,7 +143,7 @@
             android:layout_below="@id/textView_pWatchedMovies"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:text="SIGN OUT"
+            android:text="@string/button_pSignOut"
             android:textSize="15dp" />
 
     </RelativeLayout>

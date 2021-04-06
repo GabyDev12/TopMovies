@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:text="Movie Title"
+            android:text="@string/textView_MovieTitle"
             android:textColor="@color/white"
             android:textSize="40dp"
             android:textStyle="bold" />
@@ -28,7 +28,7 @@
             android:layout_below="@+id/textView_MovieTitle"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
-            android:text="Date:"
+            android:text="@string/textView_tDate"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -40,7 +40,7 @@
             android:layout_below="@+id/textView_tDate"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:text="xxxx - xx - xx"
+            android:text="@string/textView_Date"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
@@ -53,7 +53,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/textView_Date"
-            android:text="Time:"
+            android:text="@string/textView_tTime"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -66,7 +66,7 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/textView_Date"
-            android:text="00:00"
+            android:text="@string/textView_Time"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
@@ -77,7 +77,7 @@
             android:layout_below="@+id/textView_Date"
             android:layout_marginTop="60dp"
             android:layout_marginBottom="10dp"
-            android:text="Tickets:"
+            android:text="@string/textView_tTickets"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -90,7 +90,7 @@
             android:layout_alignBaseline="@+id/textView_tTickets"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/textView_tTickets"
-            android:text="8"
+            android:text="@string/textView_Tickets"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
@@ -101,7 +101,7 @@
             android:layout_below="@+id/textView_tTickets"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
-            android:text="Seats:"
+            android:text="@string/textView_tSeats"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -115,7 +115,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
             android:layout_toRightOf="@+id/textView_tSeats"
-            android:text="14, 21, 2"
+            android:text="@string/textView_Seats"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
@@ -126,7 +126,7 @@
             android:layout_below="@+id/textView_Seats"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
-            android:text="Total Price:"
+            android:text="@string/textView_tFinalPrice"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -138,7 +138,7 @@
             android:layout_below="@+id/textView_tFinalPrice"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:text="14,80 €"
+            android:text="@string/textView_FinalPrice"
             android:textColor="@color/white"
             android:textSize="30dp" />
 
@@ -151,7 +151,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:text="Buy"
+            android:text="@string/button_Buy"
             android:textSize="18dp" />
 
     </RelativeLayout>

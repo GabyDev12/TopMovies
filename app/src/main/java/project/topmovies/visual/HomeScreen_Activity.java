@@ -91,7 +91,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         // Configuration for Toolbar
         Toolbar toolbar = findViewById(R.id.main_toolbar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle(R.string.titleHome);
         setSupportActionBar(toolbar);
 
 
@@ -166,7 +166,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
-                        Toast.makeText(HomeScreen_Activity.this, "There was a problem loading the user data. Sorry", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HomeScreen_Activity.this, R.string.problemLoadingUserData, Toast.LENGTH_LONG).show();
 
                     }
 
@@ -178,7 +178,6 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             nav_Menu = navigationView.getMenu();
 
             nav_Menu.setGroupVisible(R.id.group_userOptions, true);
-            nav_Menu.findItem(R.id.nav_Settings).setVisible(true);
 
         }
 
@@ -220,7 +219,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         // If it comes from the PDFViewer, load the MyFilms menu option
         if (statusApp.getInstance().myFilms == true) {
 
-            getSupportActionBar().setTitle("My Films");
+            getSupportActionBar().setTitle(R.string.titleMyFilms);
 
             tabLayoutContainer.setVisibility(View.INVISIBLE);
             contentPage.setVisibility(View.INVISIBLE);
@@ -237,7 +236,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
         // If it comes from the any settings option, load the Settings menu option
         if (statusApp.getInstance().settings == true) {
 
-            getSupportActionBar().setTitle("Settings");
+            getSupportActionBar().setTitle(R.string.titleSettings);
 
             tabLayoutContainer.setVisibility(View.INVISIBLE);
             contentPage.setVisibility(View.INVISIBLE);
@@ -263,7 +262,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         else if (navigationView.getCheckedItem().getItemId() != R.id.nav_Home) {
 
-            getSupportActionBar().setTitle("Home");
+            getSupportActionBar().setTitle(R.string.titleHome);
 
             tabLayoutContainer.setVisibility(View.VISIBLE);
             contentPage.setVisibility(View.VISIBLE);
@@ -313,7 +312,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_Home:
 
-                getSupportActionBar().setTitle("Home");
+                getSupportActionBar().setTitle(R.string.titleHome);
 
                 tabLayoutContainer.setVisibility(View.VISIBLE);
                 contentPage.setVisibility(View.VISIBLE);
@@ -326,7 +325,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_MyFilms:
 
-                getSupportActionBar().setTitle("My Films");
+                getSupportActionBar().setTitle(R.string.titleMyFilms);
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);
@@ -344,7 +343,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_Profile:
 
-                getSupportActionBar().setTitle("Profile");
+                getSupportActionBar().setTitle(R.string.titleProfile);
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);
@@ -406,13 +405,13 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
 
                 // Inform the user
-                Toast.makeText(HomeScreen_Activity.this, "Signed out successfully!", Toast.LENGTH_LONG).show();
+                Toast.makeText(HomeScreen_Activity.this, R.string.signedOut, Toast.LENGTH_LONG).show();
 
                 break;
 
             case R.id.nav_Settings:
 
-                getSupportActionBar().setTitle("Settings");
+                getSupportActionBar().setTitle(R.string.titleSettings);
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);
@@ -430,7 +429,7 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
             case R.id.nav_About:
 
-                getSupportActionBar().setTitle("About");
+                getSupportActionBar().setTitle(R.string.titleAbout);
 
                 tabLayoutContainer.setVisibility(View.INVISIBLE);
                 contentPage.setVisibility(View.INVISIBLE);

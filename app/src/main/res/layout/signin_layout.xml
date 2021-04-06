@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:fontFamily="@font/carter_one"
-        android:text="Sign In"
+        android:text="@string/textView_signIn"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="50dp" />
@@ -60,7 +60,7 @@
         android:layout_marginBottom="30dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:text="SIGN IN"
+        android:text="@string/button_SI_SignIn"
         android:textSize="20dp" />
 
     <Button
@@ -74,7 +74,7 @@
         android:layout_marginEnd="40dp"
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/google_logo"
-        android:text="SIGN WITH GOOGLE"
+        android:text="@string/button_SI_gSignIn"
         android:textColor="@color/black" />
 
     <ProgressBar
