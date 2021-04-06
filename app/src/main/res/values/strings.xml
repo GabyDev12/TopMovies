@@ -237,6 +237,12 @@
 
             <!-- ChangePassword_Activity -->
 
+                <string name="hintCurrentPassword">Actual password</string>
+
+                <string name="hintNewPassword">New password</string>
+
+                <string name="hintConfirmNewPassword">Confirm new password</string>
+
                 <string name="problemMismatchPassword">The passwords does not match</string>
 
                 <string name="changedPassword">The password was changed successfully!</string>
@@ -247,6 +253,12 @@
 
 
             <!-- ChangeProfile_Activity -->
+
+                <string name="hintName">Name</string>
+
+                <string name="hintLastName">Last name</string>
+
+                <string name="hintEmail">Email</string>
 
                 <string name="problemUpdatingName">There was a problem updating the name in the DB. Sorry</string>
 
@@ -302,6 +314,8 @@
 
             <!-- SignIn_Activity -->
 
+                <string name="hintPassword">Password</string>
+
                 <string name="signedInSuccessfully">Signed in successfully!</string>
 
                 <string name="problemSigningIn">There was a problem\nPlease, check if the data introduced is correct</string>
@@ -314,6 +328,8 @@
 
 
             <!-- SignUp_Activity -->
+
+                <string name="hintConfirmPassword">Confirm Password</string>
 
                 <string name="signedUpSuccessfully">Signed up successfully!</string>
 
