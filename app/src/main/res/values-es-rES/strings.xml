@@ -316,15 +316,15 @@
 
                 <string name="hintPassword">Contraseña</string>
 
-                <string name="signedInSuccessfully">Signed in successfully!</string>
+                <string name="signedInSuccessfully">Sesión iniciada con éxito!</string>
 
-                <string name="problemSigningIn">There was a problem\nPlease, check if the data introduced is correct</string>
+                <string name="problemSigningIn">Hubo un problema \Por favor, comprueba si la información introducida esté correcta</string>
 
-                <string name="problemGoogleSignIn">Google sign in failed</string>
+                <string name="problemGoogleSignIn">Inicio de sesión de Google fallida</string>
 
-                <string name="problemStoringUserData">There was a problem storing the user data. Sorry</string>
+                <string name="problemStoringUserData">Hubo un problema guardando la información del usuario. Lo siento</string>
 
-                <string name="gSignedInSuccessfully">Signed in with Google successfully!</string>
+                <string name="gSignedInSuccessfully">Sesión de Google iniciada con éxito!</string>
 
 
             <!-- SignUp_Activity -->
