@@ -198,7 +198,12 @@
                 <string name="pdfPrice">Price:</string>
 
 
-            <!-- About_Fragment & Billboard_Fragment -->
+            <!-- About_Fragment -->
+
+                <string name="aboutText">TopMovies is an Android app developed such as final project, applying all the knowledge learnt about Java and mobile apps development. \nThis development took almost 4 months to get done. \n\nThe principal function of the app is letting you see the billboard of a cinema and buy tickets if you are interested in watch some movie. \nIn addition, you can also see the films watched or customize your profile. \n\n\nYou can consult all documentation and the full code in the GitHub repository:</string>
+
+
+            <!-- Billboard_Fragment & ComingSoon_Fragment -->
 
                 <string name="problemLoadingMovies">There was a problem loading the movies data. Sorry</string>
 

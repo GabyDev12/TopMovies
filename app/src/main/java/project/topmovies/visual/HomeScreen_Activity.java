@@ -78,6 +78,8 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         super.onRestart();
 
+        navigationView.setCheckedItem(R.id.nav_Home);
+
         this.recreate();
 
     }

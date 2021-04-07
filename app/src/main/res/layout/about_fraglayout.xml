@@ -10,7 +10,28 @@
         android:layout_height="match_parent"
         android:padding="50dp">
 
+        <TextView
+            android:id="@+id/textView_About"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/aboutText"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
+        <ImageView
+            android:id="@+id/imageView_GitHub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_About"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_github" />
 
     </RelativeLayout>
 

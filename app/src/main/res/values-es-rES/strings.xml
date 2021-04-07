@@ -198,7 +198,12 @@
                 <string name="pdfPrice">Precio:</string>
 
 
-            <!-- About_Fragment & Billboard_Fragment -->
+            <!-- About_Fragment -->
+
+                <string name="aboutText">TopMovies es una aplicación para Android desarrollada como proyecto final, aplicando todo el conocimiento aprendido sobre Java y el desarrollo de aplicaciones móviles. \nEste desarrollo tardó casi 4 meses en realizarse. \n\nLa función principal de la aplicación es permitirle ver la cartelera de un cine y comprar entradas si está interesado en ver alguna película. \nAdemás, también puede ver las películas vistas o personalizar su perfil. \n\n\nPuede consultar toda la documentación y el código completo en el repositorio de GitHub:</string>
+
+
+            <!-- Billboard_Fragment & ComingSoon_Fragment -->
 
                 <string name="problemLoadingMovies">Hubo un problema al cargar los datos de las películas. Lo siento</string>
 
@@ -318,7 +323,7 @@
 
                 <string name="signedInSuccessfully">Sesión iniciada con éxito!</string>
 
-                <string name="problemSigningIn">Hubo un problema \Por favor, comprueba si la información introducida esté correcta</string>
+                <string name="problemSigningIn">Hubo un problema. \nPor favor, compruebe si la información introducida esté correcta</string>
 
                 <string name="problemGoogleSignIn">Inicio de sesión de Google fallida</string>
 
