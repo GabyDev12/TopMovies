@@ -33,6 +33,7 @@
         android:id="@+id/viewPager_Content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingRight="10dp"
         android:layout_below="@+id/tabLayout_Container"
         android:background="@drawable/bc_home"
         android:visibility="visible" />

@@ -35,7 +35,7 @@ public class LoadingScreen_Activity extends AppCompatActivity {
 
             }
 
-        },3000);
+        },1000);
 
     }
 

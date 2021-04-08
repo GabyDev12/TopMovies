@@ -99,6 +99,8 @@ public class Settings_Fragment extends Fragment {
 
                         Intent intentGoogleAccount = new Intent(Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com"));
 
+                        statusApp.getInstance().settings = true;
+
                         startActivity(intentGoogleAccount);
 
                     }

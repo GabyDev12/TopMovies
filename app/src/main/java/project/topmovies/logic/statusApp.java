@@ -16,6 +16,10 @@ public class statusApp {
     public boolean settings = false;
 
 
+    // Check if it comes from About menu option
+    public boolean about = false;
+
+
     // Singleton configuration
 
     // Private constructor so nobody can instantiate the class

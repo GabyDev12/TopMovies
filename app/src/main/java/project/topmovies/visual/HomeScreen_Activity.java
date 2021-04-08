@@ -78,7 +78,13 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
 
         super.onRestart();
 
-        navigationView.setCheckedItem(R.id.nav_Home);
+        if (statusApp.getInstance().myFilms == false
+                && statusApp.getInstance().settings == false
+                && statusApp.getInstance().about == false) {
+
+            navigationView.setCheckedItem(R.id.nav_Home);
+
+        }
 
         this.recreate();
 
@@ -248,6 +254,23 @@ public class HomeScreen_Activity extends AppCompatActivity implements Navigation
             navigationView.setCheckedItem(R.id.nav_Settings);
 
             statusApp.getInstance().settings = false;
+
+        }
+
+
+        // If it comes from the GitHub link option, load the About menu option
+        if (statusApp.getInstance().about == true) {
+
+            getSupportActionBar().setTitle(R.string.titleAbout);
+
+            tabLayoutContainer.setVisibility(View.INVISIBLE);
+            contentPage.setVisibility(View.INVISIBLE);
+
+            frag_container.setVisibility(View.VISIBLE);
+
+            navigationView.setCheckedItem(R.id.nav_About);
+
+            statusApp.getInstance().about = false;
 
         }
 

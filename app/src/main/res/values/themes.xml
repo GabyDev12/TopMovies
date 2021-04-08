@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.TopMovies" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.TopMovies" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/cyan</item>
         <item name="colorPrimaryVariant">@color/cyan_dark</item>
@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.TopMovies_NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.TopMovies_NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/cyan</item>
         <item name="colorPrimaryVariant">@color/cyan_dark</item>

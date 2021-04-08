@@ -4,6 +4,7 @@ package project.topmovies.visual.fragments;
 import project.topmovies.*;
 import project.topmovies.logic.MovieSeen;
 import project.topmovies.logic.adapters.RecyclerView_MovieSeen_Adapter;
+import project.topmovies.logic.statusApp;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -62,120 +63,125 @@ public class MyFilms_Fragment extends Fragment {
         thisView = inflater.inflate(R.layout.myfilms_fraglayout, container, false);
 
 
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+        // Check if the user is logged in
+        if (statusApp.getInstance().loggedIn) {
+
+            // Initialize Firebase Auth
+            mAuth = FirebaseAuth.getInstance();
 
 
-        // Access to views
-        progressBar_MyFilms = thisView.findViewById(R.id.progressBar_MyFilms);
+            // Access to views
+            progressBar_MyFilms = thisView.findViewById(R.id.progressBar_MyFilms);
 
-        textView_noMyFilms = thisView.findViewById(R.id.textView_noMyFilms);
-
-
-        // Get reference of data in Firebase
-        moviesSeenRef = FirebaseDatabase.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid());
+            textView_noMyFilms = thisView.findViewById(R.id.textView_noMyFilms);
 
 
-        // LOAD DATA
-
-        moviesSeenList = new ArrayList<>();
-
-
-        // Check if the user has watched movies
-        moviesSeenRef.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                // If there are watched films
-                if (snapshot.hasChild("watchedMovies")) {
-
-                    moviesSeenRef = moviesSeenRef.child("watchedMovies");
-
-                    moviesSeenRef.addValueEventListener(new ValueEventListener() {
-
-                        @RequiresApi(api = Build.VERSION_CODES.N)
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                            // Loop through all movies seen and store each one in the list
-                            for (DataSnapshot movieDS : snapshot.getChildren()) {
-
-                                // Get "Movie Title"
-                                String movieTitle = movieDS.getKey();
-
-                                // Get "Date Watched"
-                                String dateWatched = movieDS.child("dateWatched").getValue(String.class);
-
-                                // Get "Time Watched"
-                                String timeWatched = movieDS.child("timeWatched").getValue(String.class);
-
-                                // Get "Tickets Number"
-                                String ticketsNumber = movieDS.child("ticketsNumber").getValue(String.class) + " tickets";
-
-                                // Get "Final Price"
-                                String finalPrice = movieDS.child("finalPrice").getValue(String.class) + " €";
+            // Get reference of data in Firebase
+            moviesSeenRef = FirebaseDatabase.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid());
 
 
-                                // Create movie seen object and add it to the list
-                                MovieSeen movieSeen = new MovieSeen(movieTitle, dateWatched, timeWatched, ticketsNumber, finalPrice);
+            // LOAD DATA
 
-                                moviesSeenList.add(movieSeen);
+            moviesSeenList = new ArrayList<>();
+
+
+            // Check if the user has watched movies
+            moviesSeenRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    // If there are watched films
+                    if (snapshot.hasChild("watchedMovies")) {
+
+                        moviesSeenRef = moviesSeenRef.child("watchedMovies");
+
+                        moviesSeenRef.addValueEventListener(new ValueEventListener() {
+
+                            @RequiresApi(api = Build.VERSION_CODES.N)
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                // Loop through all movies seen and store each one in the list
+                                for (DataSnapshot movieDS : snapshot.getChildren()) {
+
+                                    // Get "Movie Title"
+                                    String movieTitle = movieDS.getKey();
+
+                                    // Get "Date Watched"
+                                    String dateWatched = movieDS.child("dateWatched").getValue(String.class);
+
+                                    // Get "Time Watched"
+                                    String timeWatched = movieDS.child("timeWatched").getValue(String.class);
+
+                                    // Get "Tickets Number"
+                                    String ticketsNumber = movieDS.child("ticketsNumber").getValue(String.class) + " Tickets";
+
+                                    // Get "Final Price"
+                                    String finalPrice = movieDS.child("finalPrice").getValue(String.class) + " €";
+
+
+                                    // Create movie seen object and add it to the list
+                                    MovieSeen movieSeen = new MovieSeen(movieTitle, dateWatched, timeWatched, ticketsNumber, finalPrice);
+
+                                    moviesSeenList.add(movieSeen);
+
+                                }
+
+                                // Order by date to watch the tickets
+                                moviesSeenList.sort(Comparator.comparing(MovieSeen::getDateWatched));
+
+
+                                mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext());
+
+
+                                // Configure RecyclerView
+                                mRecyclerView = thisView.findViewById(R.id.recyclerView_MyFilms);
+
+                                mRecyclerView.setHasFixedSize(true);
+
+                                LinearLayoutManager layoutManager = new LinearLayoutManager(container.getContext());
+                                mRecyclerView.setLayoutManager(layoutManager);
+
+                                mRecyclerView.setAdapter(mAdapter);
+
+                                // Hide the progress bar
+                                progressBar_MyFilms.setVisibility(View.GONE);
 
                             }
 
-                            // Order by date to watch the tickets
-                            moviesSeenList.sort(Comparator.comparing(MovieSeen::getDateWatched));
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
+                                Toast.makeText(getActivity(), R.string.problemLoadingMoviesWatched, Toast.LENGTH_LONG).show();
 
-                            mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext());
+                                // Hide the progress bar
+                                progressBar_MyFilms.setVisibility(View.GONE);
 
+                            }
 
-                            // Configure RecyclerView
-                            mRecyclerView = thisView.findViewById(R.id.recyclerView_MyFilms);
+                        });
 
-                            mRecyclerView.setHasFixedSize(true);
+                    }
 
-                            LinearLayoutManager layoutManager = new LinearLayoutManager(container.getContext());
-                            mRecyclerView.setLayoutManager(layoutManager);
+                    // If there are no watched films
+                    else {
 
-                            mRecyclerView.setAdapter(mAdapter);
+                        textView_noMyFilms.setVisibility(View.VISIBLE);
 
-                            // Hide the progress bar
-                            progressBar_MyFilms.setVisibility(View.GONE);
+                        // Hide the progress bar
+                        progressBar_MyFilms.setVisibility(View.GONE);
 
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                            Toast.makeText(getActivity(), R.string.problemLoadingMoviesWatched, Toast.LENGTH_LONG).show();
-
-                            // Hide the progress bar
-                            progressBar_MyFilms.setVisibility(View.GONE);
-
-                        }
-
-                    });
+                    }
 
                 }
 
-                // If there are no watched films
-                else {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) { }
 
-                    textView_noMyFilms.setVisibility(View.VISIBLE);
+            });
 
-                    // Hide the progress bar
-                    progressBar_MyFilms.setVisibility(View.GONE);
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) { }
-
-        });
+        }
 
         //
 

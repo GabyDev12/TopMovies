@@ -208,6 +208,8 @@ public class SignIn_Activity extends AppCompatActivity {
 
             } catch (ApiException e) {
 
+                progressBar_SignIn.setVisibility(View.INVISIBLE);
+
                 // Google Sign In failed, update UI appropriately
                 Toast.makeText(SignIn_Activity.this, R.string.problemGoogleSignIn, Toast.LENGTH_LONG).show();
 

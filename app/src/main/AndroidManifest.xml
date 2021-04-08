@@ -17,37 +17,51 @@
         android:theme="@style/Theme.TopMovies">
         <activity
             android:name=".visual.ChangePassword_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.ChangeProfile_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.MovieTrailer_Activity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".visual.PDFViewer_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.TicketsBought_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
-        <activity android:name=".visual.Checkout_Activity" />
-        <activity android:name=".visual.Booking_Activity" />
-        <activity android:name=".visual.MovieDetails_Activity">
+        <activity
+            android:name=".visual.Checkout_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".visual.Booking_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".visual.MovieDetails_Activity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".visual.HomeScreen_Activity" />
         </activity>
         <activity
             android:name=".visual.SignIn_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.SignUp_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.HomeScreen_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar" />
         <activity
             android:name=".visual.LoadingScreen_Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TopMovies_NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

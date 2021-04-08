@@ -2,6 +2,7 @@ package project.topmovies.visual.fragments;
 
 
 import project.topmovies.*;
+import project.topmovies.logic.statusApp;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -44,6 +45,8 @@ public class About_Fragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intentGitHubRepository = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/MrDev-12/TopMovies"));
+
+                statusApp.getInstance().about = true;
 
                 startActivity(intentGitHubRepository);
 
