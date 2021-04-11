@@ -151,6 +151,8 @@ public class Settings_Fragment extends Fragment {
 
                 setLocale("es");
 
+                statusApp.getInstance().language = "es";
+
                 statusApp.getInstance().settings = true;
 
                 getActivity().recreate();
@@ -167,6 +169,8 @@ public class Settings_Fragment extends Fragment {
             public void onClick(View v) {
 
                 setLocale("en");
+
+                statusApp.getInstance().language = "en";
 
                 statusApp.getInstance().settings = true;
 

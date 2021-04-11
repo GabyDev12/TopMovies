@@ -8,6 +8,11 @@ public class statusApp {
     public boolean gAuth = false;
 
 
+    // CURRENT LANGUAGE
+
+    public String language = "en";
+
+
     // Check if it comes from MyFilms menu option
     public boolean myFilms = false;
 

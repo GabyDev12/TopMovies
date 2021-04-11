@@ -58,7 +58,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView_MovieTimes"
             android:layout_margin="15dp"
-            android:entries="@array/movieTimes"
             android:padding="8dp" />
 
         <TextView

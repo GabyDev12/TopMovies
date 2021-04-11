@@ -297,7 +297,7 @@
 
                 <string name="titleSettings">Ajustes</string>
 
-                <string name="titleAbout">Acerca de</string>
+                <string name="titleAbout">Acerca</string>
 
 
             <!-- MovieDetails_Activity -->
@@ -371,7 +371,7 @@
 
             <string name="nav_Settings">Ajustes</string>
 
-            <string name="nav_About">Acerca de</string>
+            <string name="nav_About">Acerca</string>
 
 
 

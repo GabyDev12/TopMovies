@@ -3,7 +3,7 @@ package project.topmovies.visual;
 
 import project.topmovies.*;
 import project.topmovies.logic.DatePickerFragment;
-import project.topmovies.logic.Movie;
+import project.topmovies.logic.statusApp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
@@ -41,6 +42,10 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
 
 
     Spinner spinner_MovieTimes;
+
+    ArrayAdapter<CharSequence> spinnerTimes_Adapter;
+
+
     private String timeSelected;
 
 
@@ -96,6 +101,24 @@ public class Booking_Activity extends AppCompatActivity implements View.OnClickL
         spinner_MovieTimes = findViewById(R.id.spinner_MovieTimes);
 
         button_Checkout = findViewById(R.id.button_Checkout);
+
+
+        // Set data entries for Times
+        if (statusApp.getInstance().language == "en") {         // If the language is English
+
+            spinnerTimes_Adapter = ArrayAdapter.createFromResource(this, R.array.movieTimes_EN, android.R.layout.simple_spinner_item);
+
+        }
+
+        else {         // If the language is Spanish
+
+            spinnerTimes_Adapter = ArrayAdapter.createFromResource(this, R.array.movieTimes_ES, android.R.layout.simple_spinner_item);
+
+        }
+
+        spinnerTimes_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner_MovieTimes.setAdapter(spinnerTimes_Adapter);
 
 
         // Action button DateSelection

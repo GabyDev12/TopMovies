@@ -2,9 +2,22 @@
 
 <resources>
 
-    <string-array name="movieTimes">
+    <string-array name="movieTimes_EN">
 
         <item>Select a time...</item>
+
+        <item>17:15</item>
+        <item>17:45</item>
+        <item>18:00</item>
+        <item>19:35</item>
+        <item>20:15</item>
+        <item>20:45</item>
+
+    </string-array>
+
+    <string-array name="movieTimes_ES">
+
+        <item>Selecciona una hora...</item>
 
         <item>17:15</item>
         <item>17:45</item>
