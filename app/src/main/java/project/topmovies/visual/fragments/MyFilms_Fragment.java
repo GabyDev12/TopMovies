@@ -129,7 +129,7 @@ public class MyFilms_Fragment extends Fragment {
                                 }
 
                                 // Order by date to watch the tickets
-                                moviesSeenList.sort(Comparator.comparing(MovieSeen::getDateWatched));
+                                moviesSeenList.sort(Comparator.comparing(MovieSeen::getDateWatched).reversed());
 
 
                                 mAdapter = new RecyclerView_MovieSeen_Adapter(moviesSeenList, container.getContext());
