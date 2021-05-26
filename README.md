@@ -362,6 +362,8 @@ All the data is stored in a **Firebase Database**.
 
 <p>&nbsp;</p>
 
-You can download the app in the following link → [Download here](https://downgit.github.io/#/home?url=https://github.com/GabyDev12/Pink_Girl_Adventures/tree/master/Builds/Windows)
+You can download the app in the following link → [Download here](https://github.com/GabyDev12/TopMovies/blob/master/TopMovies.apk?raw=true)
 
 *Authorize it to be installed. Don't worry, it doesn't have virus -_-*
+
+<p>&nbsp;</p>
