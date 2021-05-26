@@ -76,7 +76,7 @@ All the data is stored in a **Firebase Database**.
 
 <div align="center">
 
-  <img width=450px height=200px src="./Images/Firebase-Logo.png">
+  <img width=450px height=200px src="./images/Firebase-Logo.png">
 
 </div>
 
@@ -100,7 +100,7 @@ All the data is stored in a **Firebase Database**.
 
    <div align="center">
 
-   <img width=200px height=380px src="./Images/Loading-Screen.png">
+   <img width=200px height=380px src="./images/Loading-Screen.png">
 
    </div>
 
@@ -115,9 +115,9 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Home-Screen-1.png">
+      <img width=200px height=380px src="./images/Home-Screen-1.png">
 
-      <img width=200px height=380px src="./Images/Home-Screen-2.png">
+      <img width=200px height=380px src="./images/Home-Screen-2.png">
 
     </div>
 
@@ -130,9 +130,9 @@ All the data is stored in a **Firebase Database**.
 
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Side-Menu-1.png">
+      <img width=200px height=380px src="./images/Side-Menu-1.png">
 
-      <img width=200px height=380px src="./Images/Side-Menu-2.png">
+      <img width=200px height=380px src="./images/Side-Menu-2.png">
 
     </div>
 
@@ -150,7 +150,7 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/My-Films.png">
+         <img width=200px height=380px src="./images/My-Films.png">
 
          </div>
          
@@ -162,7 +162,7 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/Ticket-Viewer.png">
+         <img width=200px height=380px src="./images/Ticket-Viewer.png">
 
          </div>
 
@@ -181,7 +181,7 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/Profile.png">
+         <img width=200px height=380px src="./images/Profile.png">
 
          </div>
 
@@ -197,7 +197,7 @@ All the data is stored in a **Firebase Database**.
       
          <div align="center">
 
-         <img width=200px height=380px src="./Images/Settings-Not-Logged-In.png">
+         <img width=200px height=380px src="./images/Settings-Not-Logged-In.png">
 
          </div>
 
@@ -207,7 +207,7 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/Settings-Logged-In-Firebase.png">
+         <img width=200px height=380px src="./images/Settings-Logged-In-Firebase.png">
 
          </div>
 
@@ -217,9 +217,9 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/Settings-Logged-In-Firebase-Edit-Profile.png">
+         <img width=200px height=380px src="./images/Settings-Logged-In-Firebase-Edit-Profile.png">
 
-         <img width=200px height=380px src="./Images/Settings-Logged-In-Firebase-Edit-Password.png">
+         <img width=200px height=380px src="./images/Settings-Logged-In-Firebase-Edit-Password.png">
 
          </div>
 
@@ -229,9 +229,9 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/Settings-Logged-In-Google.png">
+         <img width=200px height=380px src="./images/Settings-Logged-In-Google.png">
 
-         <img width=200px height=380px src="./Images/Settings-Logged-In-Google-Edit-Profile.png">
+         <img width=200px height=380px src="./images/Settings-Logged-In-Google-Edit-Profile.png">
 
          </div>
 
@@ -242,7 +242,7 @@ All the data is stored in a **Firebase Database**.
 
          <div align="center">
 
-         <img width=200px height=380px src="./Images/About.png">
+         <img width=200px height=380px src="./images/About.png">
 
          </div>
 
@@ -257,7 +257,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Sign-Up-Screen.png">
+      <img width=200px height=380px src="./images/Sign-Up-Screen.png">
 
     </div>
 
@@ -274,7 +274,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Sign-In-Screen.png">
+      <img width=200px height=380px src="./images/Sign-In-Screen.png">
 
     </div>
 
@@ -291,7 +291,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Movie-Details-Screen.png">
+      <img width=200px height=380px src="./images/Movie-Details-Screen.png">
 
     </div>
 
@@ -306,7 +306,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Booking-Screen-1.png">
+      <img width=200px height=380px src="./images/Booking-Screen-1.png">
 
     </div>
 
@@ -316,7 +316,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Booking-Screen-2.png">
+      <img width=200px height=380px src="./images/Booking-Screen-2.png">
 
     </div>
 
@@ -327,7 +327,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Checkout-Screen.png">
+      <img width=200px height=380px src="./images/Checkout-Screen.png">
 
     </div>
 
@@ -344,7 +344,7 @@ All the data is stored in a **Firebase Database**.
     
     <div align="center">
 
-      <img width=200px height=380px src="./Images/Ticket-Bought-Screen.png">
+      <img width=200px height=380px src="./images/Ticket-Bought-Screen.png">
 
     </div>
 
